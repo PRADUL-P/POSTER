@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ചാന്ദ്ര ദിന ക്വിസ് വിജയികൾ - Poster Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700;900&display=swap" rel="stylesheet">
+<title>Poster Designer Pro - Reusable Template Maker</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700;900&family=Gayathri:wght@400;700&family=Chilanka&family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 <style>
 * {
   margin: 0;
@@ -24,7 +24,7 @@ body {
 
 /* Control Panel (Sidebar) */
 .control-panel {
-  width: 420px;
+  width: 430px;
   height: 100vh;
   overflow-y: auto;
   background: rgba(8, 22, 56, 0.95);
@@ -79,7 +79,7 @@ body {
   color: #a0aec0;
 }
 
-input[type="text"] {
+input[type="text"], select {
   width: 100%;
   padding: 8px 12px;
   border-radius: 6px;
@@ -87,12 +87,16 @@ input[type="text"] {
   background: rgba(0, 0, 0, 0.25);
   color: #fff;
   font-size: 13px;
+  outline: none;
   transition: all 0.3s;
 }
-input[type="text"]:focus {
-  outline: none;
+input[type="text"]:focus, select:focus {
   border-color: #FFD54F;
   box-shadow: 0 0 8px rgba(255, 213, 79, 0.3);
+}
+select option {
+  background: #081638;
+  color: #fff;
 }
 
 .divider {
@@ -293,6 +297,17 @@ input[type="range"]::-webkit-slider-thumb:hover {
   box-shadow: 0 6px 18px rgba(255, 213, 79, 0.4);
 }
 
+/* Winner Edit Card Specific style for sidebar wrappers */
+.winner-section {
+  background: rgba(255, 255, 255, 0.03); 
+  border-radius: 12px; 
+  padding: 14px; 
+  border: 1px solid rgba(255, 255, 255, 0.05); 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px;
+}
+
 /* Preview Area (Right Side) */
 .preview-area {
   flex-grow: 1;
@@ -312,15 +327,44 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 /* Original Poster styling (fixed width for exact scale print) */
 .poster {
-  width: 800px;
-  border-radius: 30px;
-  padding: 40px;
   color: #fff;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+/* Size Ratios */
+.poster.ratio-portrait {
+  width: 800px;
+  min-height: 1000px;
+}
+.poster.ratio-square {
+  width: 800px;
+  min-height: 800px;
+}
+.poster.ratio-landscape {
+  width: 1000px;
+  min-height: 800px;
+}
+
+/* Gradient Theme Presets */
+.poster.bg-cosmic {
   background: radial-gradient(circle at top, #234aa5, #081638 70%);
+}
+.poster.bg-sunset {
+  background: linear-gradient(135deg, #2e0854 0%, #7a1b5d 50%, #d45b2c 100%);
+}
+.poster.bg-neon {
+  background: radial-gradient(circle at center, #7928ca, #000000 80%);
+}
+.poster.bg-emerald {
+  background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+}
+.poster.bg-ruby {
+  background: radial-gradient(circle at center, #881337, #1c0008 80%);
 }
 
 .poster-bg {
@@ -487,6 +531,18 @@ h1 {
     print-color-adjust: exact !important;
     page-break-inside: avoid;
   }
+  .poster.ratio-portrait {
+    width: 800px !important;
+    min-height: 1000px !important;
+  }
+  .poster.ratio-square {
+    width: 800px !important;
+    min-height: 800px !important;
+  }
+  .poster.ratio-landscape {
+    width: 1000px !important;
+    min-height: 800px !important;
+  }
 }
 </style>
 </head>
@@ -496,7 +552,7 @@ h1 {
 <div class="control-panel">
   <div class="panel-header">
     <h2>Poster Designer Pro</h2>
-    <p>Fine-tune layouts, winner counts, & backgrounds</p>
+    <p>Fine-tune layouts, category labels, & background themes</p>
   </div>
   
   <div class="control-group">
@@ -509,8 +565,64 @@ h1 {
     <input type="text" id="input-school" value="SN Trust HSS Thottada">
   </div>
 
+  <!-- Category Titles Settings -->
+  <div class="winner-section">
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🏷️ Category Settings</h4>
+    <div class="sliders-grid">
+      <div class="control-group">
+        <label class="control-label">1st Cat Title</label>
+        <input type="text" id="input-cat1-title" value="First Prize">
+      </div>
+      <div class="control-group">
+        <label class="control-label">1st Cat Badge</label>
+        <input type="text" id="input-cat1-emoji" value="🥇" style="text-align:center;">
+      </div>
+      <div class="control-group">
+        <label class="control-label">2nd Cat Title</label>
+        <input type="text" id="input-cat2-title" value="Second Prize">
+      </div>
+      <div class="control-group">
+        <label class="control-label">2nd Cat Badge</label>
+        <input type="text" id="input-cat2-emoji" value="🥈" style="text-align:center;">
+      </div>
+      <div class="control-group">
+        <label class="control-label">3rd Cat Title</label>
+        <input type="text" id="input-cat3-title" value="Third Prize">
+      </div>
+      <div class="control-group">
+        <label class="control-label">3rd Cat Badge</label>
+        <input type="text" id="input-cat3-emoji" value="🥉" style="text-align:center;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Design & Typography Settings -->
+  <div class="winner-section">
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">📐 Design & Layout</h4>
+    <div class="sliders-grid">
+      <div class="control-group">
+        <label class="control-label">Canvas Ratio</label>
+        <select id="select-ratio">
+          <option value="portrait" selected>Portrait (800x1000)</option>
+          <option value="square">Square (800x800)</option>
+          <option value="landscape">Landscape (1000x800)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Font Style</label>
+        <select id="select-font">
+          <option value="'Noto Sans Malayalam', sans-serif" selected>Noto Sans Mal</option>
+          <option value="'Gayathri', sans-serif">Gayathri (Script)</option>
+          <option value="'Chilanka', sans-serif">Chilanka (Hand)</option>
+          <option value="'Outfit', sans-serif">Outfit (Sans)</option>
+          <option value="'Playfair Display', serif">Playfair (Serif)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
   <!-- Background Settings -->
-  <div class="winner-section" style="background: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 14px; border: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; gap: 10px;">
+  <div class="winner-section">
     <h4 style="margin:0; font-size:14px; color:#ffd54f;">🌌 Poster Background</h4>
     <div class="file-input-wrapper">
       <span class="file-input-btn">Upload Background Image</span>
@@ -526,7 +638,17 @@ h1 {
         <input type="range" id="range-bg-blur" min="0" max="25" value="0">
       </div>
     </div>
-    <button id="btn-reset-bg" class="btn-align" style="width: 100%; margin-top: 4px; padding: 6px;">Reset to Classic Gradient</button>
+    <div class="control-group" style="margin-top: 4px;">
+      <label class="control-label">Gradient Preset</label>
+      <select id="select-gradient">
+        <option value="cosmic" selected>Cosmic Space (Default)</option>
+        <option value="sunset">Sunset Gold</option>
+        <option value="neon">Neon Cyber</option>
+        <option value="emerald">Emerald Aurora</option>
+        <option value="ruby">Royal Ruby</option>
+      </select>
+    </div>
+    <button id="btn-reset-bg" class="btn-align" style="width: 100%; margin-top: 4px; padding: 6px;">Reset Background</button>
   </div>
 
   <hr class="divider">
@@ -543,7 +665,7 @@ h1 {
 <!-- Right Area: Live Preview -->
 <div class="preview-area" id="preview-area">
   <div class="poster-wrapper" id="poster-wrapper">
-    <div class="poster" id="poster">
+    <div class="poster ratio-portrait bg-cosmic" id="poster">
       <!-- Background Layers -->
       <div class="poster-bg" id="poster-bg"></div>
       <div class="poster-bg-overlay" id="poster-bg-overlay"></div>
@@ -572,6 +694,16 @@ const state = {
   bgImage: '',
   bgBlur: 0,
   bgDim: 30,
+  bgGradientPreset: 'cosmic',
+  aspectRatio: 'portrait',
+  fontFamily: "'Noto Sans Malayalam', sans-serif",
+  
+  firstPrizeTitle: 'First Prize',
+  firstPrizeEmoji: '🥇',
+  secondPrizeTitle: 'Second Prize',
+  secondPrizeEmoji: '🥈',
+  thirdPrizeTitle: 'Third Prize',
+  thirdPrizeEmoji: '🥉',
   
   firstPrizes: [],
   secondPrizes: [],
@@ -593,7 +725,7 @@ function createWinner(name) {
   };
 }
 
-// Initialize with user's starting setup (1 first, 1 second, 2 thirds)
+// Initialize with defaults
 state.firstPrizes.push(createWinner('Nanma Lal'));
 state.secondPrizes.push(createWinner('Nainika Mukesh'));
 state.thirdPrizes.push(createWinner('Ananya K'));
@@ -621,11 +753,11 @@ function renderControls() {
   
   let html = '';
 
-  function getCategoryHtml(title, categoryName, list, badge) {
+  function getCategoryHtml(title, categoryName, list, badge, labelId) {
     let catHtml = `
       <div class="category-group" style="margin-bottom: 18px;">
-        <h3 style="color:#ffd54f; font-size: 15px; margin-bottom: 12px; display:flex; align-items:center; justify-content:space-between;">
-          <span>${title}</span>
+        <h3 id="${labelId}" style="color:#ffd54f; font-size: 15px; margin-bottom: 12px; display:flex; align-items:center; justify-content:space-between;">
+          <span>${badge} ${title} Winners</span>
           <button class="btn-add-winner" onclick="addWinner('${categoryName}')">+ Add Winner</button>
         </h3>
     `;
@@ -697,9 +829,9 @@ function renderControls() {
     return catHtml;
   }
 
-  html += getCategoryHtml('🥇 First Prize Winners', 'firstPrizes', state.firstPrizes, '🥇');
-  html += getCategoryHtml('🥈 Second Prize Winners', 'secondPrizes', state.secondPrizes, '🥈');
-  html += getCategoryHtml('🥉 Third Prize Winners', 'thirdPrizes', state.thirdPrizes, '🥉');
+  html += getCategoryHtml(state.firstPrizeTitle, 'firstPrizes', state.firstPrizes, state.firstPrizeEmoji, 'ctrl-cat1-label');
+  html += getCategoryHtml(state.secondPrizeTitle, 'secondPrizes', state.secondPrizes, state.secondPrizeEmoji, 'ctrl-cat2-label');
+  html += getCategoryHtml(state.thirdPrizeTitle, 'thirdPrizes', state.thirdPrizes, state.thirdPrizeEmoji, 'ctrl-cat3-label');
 
   container.innerHTML = html;
   bindDynamicControlsEvents();
@@ -747,7 +879,6 @@ function bindDynamicControlsEvents() {
         winner.textY = val;
         document.getElementById(`label-texty-${id}`).textContent = val;
         
-        // Find the text block inside that winner card
         const posterCard = document.getElementById(`winner-card-${id}`);
         if (posterCard) {
           const textBlock = posterCard.querySelector('.text-block');
@@ -849,7 +980,6 @@ function updatePosterBackground() {
   if (state.bgImage) {
     posterBg.style.backgroundImage = `url(${state.bgImage})`;
     posterBg.style.filter = `blur(${state.bgBlur}px)`;
-    // Scale up background slightly to hide blurry bleeding borders
     posterBg.style.transform = `scale(${1 + state.bgBlur * 0.015})`; 
   } else {
     posterBg.style.backgroundImage = 'none';
@@ -881,6 +1011,7 @@ function renderPoster() {
     const imgUrl = winner.image || DEFAULT_AVATAR;
     
     if (isRowLayout) {
+      const prizeTitle = badge === state.firstPrizeEmoji ? state.firstPrizeTitle : state.secondPrizeTitle;
       return `
         <div class="winner" id="winner-card-${winner.id}">
           <div style="font-size:60px; line-height:1;">${badge}</div>
@@ -888,12 +1019,16 @@ function renderPoster() {
             <img id="img-${winner.id}" src="${imgUrl}" style="${imgStyle}">
           </div>
           <div class="text-block" style="${textStyle} flex-grow: 1;">
-            <h2>${badge === '🥇' ? 'First Prize' : 'Second Prize'}</h2>
+            <h2>${escapeHTML(prizeTitle)}</h2>
             <h3 id="name-${winner.id}">${escapeHTML(winner.name)}</h3>
           </div>
         </div>
       `;
     } else {
+      let prizeTitle = state.thirdPrizeTitle;
+      if (badge === state.firstPrizeEmoji) prizeTitle = state.firstPrizeTitle;
+      else if (badge === state.secondPrizeEmoji) prizeTitle = state.secondPrizeTitle;
+      
       return `
         <div class="card" id="winner-card-${winner.id}">
           <div style="font-size:60px; line-height:1; margin-bottom: 6px;">${badge}</div>
@@ -903,7 +1038,7 @@ function renderPoster() {
             </div>
           </div>
           <div class="text-block" style="${textStyle}">
-            <h2>${badge === '🥇' ? 'First Prize' : (badge === '🥈' ? 'Second Prize' : 'Third Prize')}</h2>
+            <h2>${escapeHTML(prizeTitle)}</h2>
             <h3 id="name-${winner.id}">${escapeHTML(winner.name)}</h3>
           </div>
         </div>
@@ -917,7 +1052,7 @@ function renderPoster() {
     const gridClass = isSingle ? 'prize-grid-1' : 'prize-grid-2';
     let groupHtml = `<div class="${gridClass}">`;
     state.firstPrizes.forEach(winner => {
-      groupHtml += getWinnerHtml(winner, '🥇', isSingle);
+      groupHtml += getWinnerHtml(winner, state.firstPrizeEmoji, isSingle);
     });
     groupHtml += `</div>`;
     container.insertAdjacentHTML('beforeend', groupHtml);
@@ -929,7 +1064,7 @@ function renderPoster() {
     const gridClass = isSingle ? 'prize-grid-1' : 'prize-grid-2';
     let groupHtml = `<div class="${gridClass}">`;
     state.secondPrizes.forEach(winner => {
-      groupHtml += getWinnerHtml(winner, '🥈', isSingle);
+      groupHtml += getWinnerHtml(winner, state.secondPrizeEmoji, isSingle);
     });
     groupHtml += `</div>`;
     container.insertAdjacentHTML('beforeend', groupHtml);
@@ -937,13 +1072,13 @@ function renderPoster() {
 
   // 3. Third Prize Category
   if (state.thirdPrizes.length > 0) {
-    let gridClass = 'prize-grid-2'; // Default grid layout
+    let gridClass = 'prize-grid-2'; 
     if (state.thirdPrizes.length === 1) gridClass = 'prize-grid-1';
     else if (state.thirdPrizes.length >= 3) gridClass = 'prize-grid-3';
     
     let groupHtml = `<div class="${gridClass}">`;
     state.thirdPrizes.forEach(winner => {
-      groupHtml += getWinnerHtml(winner, '🥉', false);
+      groupHtml += getWinnerHtml(winner, state.thirdPrizeEmoji, false);
     });
     groupHtml += `</div>`;
     container.insertAdjacentHTML('beforeend', groupHtml);
@@ -956,6 +1091,34 @@ function renderPoster() {
   autoScale();
 }
 
+// Binds Category Settings changes without focus loss
+function setupCategoryBindings() {
+  const config = [
+    { titleId: 'input-cat1-title', emojiId: 'input-cat1-emoji', labelId: 'ctrl-cat1-label', stateTitle: 'firstPrizeTitle', stateEmoji: 'firstPrizeEmoji' },
+    { titleId: 'input-cat2-title', emojiId: 'input-cat2-emoji', labelId: 'ctrl-cat2-label', stateTitle: 'secondPrizeTitle', stateEmoji: 'secondPrizeEmoji' },
+    { titleId: 'input-cat3-title', emojiId: 'input-cat3-emoji', labelId: 'ctrl-cat3-label', stateTitle: 'thirdPrizeTitle', stateEmoji: 'thirdPrizeEmoji' }
+  ];
+
+  config.forEach(c => {
+    const titleInput = document.getElementById(c.titleId);
+    const emojiInput = document.getElementById(c.emojiId);
+    
+    titleInput.addEventListener('input', (e) => {
+      state[c.stateTitle] = e.target.value;
+      const label = document.getElementById(c.labelId);
+      if (label) label.querySelector('span').textContent = `${state[c.stateEmoji]} ${state[c.stateTitle]} Winners`;
+      renderPoster();
+    });
+
+    emojiInput.addEventListener('input', (e) => {
+      state[c.stateEmoji] = e.target.value;
+      const label = document.getElementById(c.labelId);
+      if (label) label.querySelector('span').textContent = `${state[c.stateEmoji]} ${state[c.stateTitle]} Winners`;
+      renderPoster();
+    });
+  });
+}
+
 // Binds general static inputs
 document.getElementById('input-title').addEventListener('input', (e) => {
   state.title = e.target.value;
@@ -966,6 +1129,29 @@ document.getElementById('input-school').addEventListener('input', (e) => {
   state.school = e.target.value;
   document.getElementById('poster-school').textContent = e.target.value;
   autoScale();
+});
+
+// Layout Ratio change
+const poster = document.getElementById('poster');
+document.getElementById('select-ratio').addEventListener('change', (e) => {
+  state.aspectRatio = e.target.value;
+  poster.classList.remove('ratio-portrait', 'ratio-square', 'ratio-landscape');
+  poster.classList.add(`ratio-${state.aspectRatio}`);
+  autoScale();
+});
+
+// Font Style change
+document.getElementById('select-font').addEventListener('change', (e) => {
+  state.fontFamily = e.target.value;
+  poster.style.fontFamily = state.fontFamily;
+  autoScale();
+});
+
+// Gradient Preset change
+document.getElementById('select-gradient').addEventListener('change', (e) => {
+  state.bgGradientPreset = e.target.value;
+  poster.classList.remove('bg-cosmic', 'bg-sunset', 'bg-neon', 'bg-emerald', 'bg-ruby');
+  poster.classList.add(`bg-${state.bgGradientPreset}`);
 });
 
 // Background inputs bindings
@@ -999,7 +1185,6 @@ document.getElementById('btn-print').addEventListener('click', () => {
 });
 
 // Poster Scale-to-Fit Engine
-const poster = document.getElementById('poster');
 const wrapper = document.getElementById('poster-wrapper');
 const previewArea = document.getElementById('preview-area');
 
@@ -1013,7 +1198,7 @@ function autoScale() {
   // Reset temporarily to calculate natural size
   poster.style.transform = 'none';
   const naturalH = poster.scrollHeight;
-  const naturalW = 800; // Natural poster width
+  const naturalW = poster.offsetWidth; 
   
   const scale = Math.min(previewW / naturalW, previewH / naturalH, 1);
   
@@ -1029,6 +1214,7 @@ document.fonts.ready.then(autoScale);
 
 // Initial bootstrap rendering
 renderControls();
+setupCategoryBindings();
 renderPoster();
 </script>
 </body>
