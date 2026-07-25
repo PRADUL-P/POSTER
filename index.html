@@ -250,6 +250,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   cursor: pointer;
   transition: all 0.2s;
   text-align: center;
+  text-decoration: none;
 }
 .btn-align.active {
   background: #FFD54F;
@@ -341,7 +342,7 @@ input[type="color"]::-webkit-color-swatch {
   transition: transform 0.1s ease-out;
 }
 
-/* Original Poster styling (fixed width for exact scale print) */
+/* Original Poster styling */
 .poster {
   color: #fff;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -375,7 +376,7 @@ input[type="color"]::-webkit-color-swatch {
   min-height: 400px;
 }
 
-/* Gradient Theme Presets (Overridden if custom gradient style applied) */
+/* Gradient Theme Presets */
 .poster.bg-cosmic {
   background: radial-gradient(circle at top, #234aa5, #081638 70%);
 }
@@ -396,7 +397,6 @@ input[type="color"]::-webkit-color-swatch {
 .poster.theme-cosmic {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
-
 .poster.theme-minimalist {
   border: none !important;
   box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
@@ -404,16 +404,13 @@ input[type="color"]::-webkit-color-swatch {
 .poster.theme-minimalist .winner, .poster.theme-minimalist .card {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
-
 .poster.theme-neon {
   border: 2px solid #ff007f !important;
   box-shadow: 0 0 20px #ff007f, inset 0 0 20px #ff007f !important;
 }
-
 .poster.theme-glass {
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
-
 .poster.theme-royal {
   border: 6px double #ffd700 !important;
 }
@@ -465,7 +462,7 @@ h1 {
   letter-spacing: 0.5px;
 }
 
-/* Winner Card Base styles - border-radius, background and margins are set dynamically */
+/* Winner Card Base styles */
 .winner, .card {
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -475,7 +472,7 @@ h1 {
   transform: scale(1.01);
 }
 
-/* Crop image containers - Borders are dynamically added via updateBorders style block */
+/* Crop image containers */
 .img-container {
   width: 120px;
   height: 120px;
@@ -581,8 +578,35 @@ h1 {
     page-break-inside: avoid;
   }
 }
+
+/* Responsive Mobile Layout */
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .preview-area {
+    width: 100%;
+    height: 45vh;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+  }
+  .control-panel {
+    width: 100% !important;
+    height: auto !important;
+    overflow-y: visible !important;
+    padding: 20px 15px 50px 15px !important;
+    box-shadow: none !important;
+    border-right: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
 </style>
-<!-- Style element dynamically edited to override all image borders seamlessly -->
 <style id="dynamic-borders-style"></style>
 </head>
 <body>
@@ -590,7 +614,12 @@ h1 {
 <!-- Left Panel: Customizer Controls -->
 <div class="control-panel">
   <div class="panel-header">
-    <h2>Poster Designer Pro</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+      <h2>Poster Designer Pro</h2>
+      <a href="editor.html" class="btn-nav" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); border: none; font-weight: bold; color: #fff; padding: 6px 12px; font-size: 11px; text-decoration: none; border-radius: 6px; box-shadow: 0 4px 10px rgba(59,130,246,0.3); flex: 0 0 auto;">
+        🎨 Visual Editor
+      </a>
+    </div>
     <p>Fine-tune layouts, category labels, & background themes</p>
   </div>
   
@@ -699,7 +728,7 @@ h1 {
       </select>
     </div>
 
-    <!-- Aesthetic Style Template select -->
+    <!-- Aesthetic Style Theme select -->
     <div class="control-group">
       <label class="control-label">Aesthetic Style Theme</label>
       <select id="select-theme">
@@ -712,7 +741,7 @@ h1 {
     </div>
   </div>
 
-  <!-- Advanced Image Border Customizer -->
+  <!-- Advanced Border Customizer (Image, Card, Poster) -->
   <div class="winner-section">
     <h4 style="margin:0; font-size:14px; color:#ffd54f;">🖼️ Image Borders</h4>
     <div class="sliders-grid">
@@ -748,6 +777,52 @@ h1 {
     <div class="control-group">
       <label class="control-label">Border Color</label>
       <input type="color" id="input-border-color" value="#ffd700" style="width: 100%; height: 32px; padding: 2px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.25); cursor: pointer;">
+    </div>
+
+    <div class="divider"></div>
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🃏 Winner Card Borders</h4>
+    <div class="sliders-grid">
+      <div class="control-group">
+        <label class="control-label">Border Style</label>
+        <select id="select-card-border-style">
+          <option value="solid">Solid</option>
+          <option value="dashed">Dashed</option>
+          <option value="double">Double</option>
+          <option value="dotted">Dotted</option>
+          <option value="none" selected>None</option>
+        </select>
+      </div>
+      <div class="slider-group">
+        <label>Thickness: <span id="label-card-border-width">1</span>px</label>
+        <input type="range" id="range-card-border-width" min="0" max="10" value="1">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Border Color</label>
+      <input type="color" id="input-card-border-color" value="#ffffff" style="width: 100%; height: 32px; padding: 2px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.25); cursor: pointer;">
+    </div>
+
+    <div class="divider"></div>
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🎴 Poster Border</h4>
+    <div class="sliders-grid">
+      <div class="control-group">
+        <label class="control-label">Border Style</label>
+        <select id="select-poster-border-style">
+          <option value="solid" selected>Solid</option>
+          <option value="dashed">Dashed</option>
+          <option value="double">Double</option>
+          <option value="dotted">Dotted</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+      <div class="slider-group">
+        <label>Thickness: <span id="label-poster-border-width">1</span>px</label>
+        <input type="range" id="range-poster-border-width" min="0" max="20" value="1">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Border Color</label>
+      <input type="color" id="input-poster-border-color" value="#ffffff" style="width: 100%; height: 32px; padding: 2px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.25); cursor: pointer;">
     </div>
   </div>
 
@@ -850,7 +925,7 @@ h1 {
 // Default space placeholder SVG
 const DEFAULT_AVATAR = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="%231e3a8a"/><stop offset="100%" stop-color="%230f172a"/></radialGradient></defs><rect width="100" height="100" fill="url(%23g)"/><circle cx="20" cy="20" r="0.8" fill="%23fff" opacity="0.8"/><circle cx="80" cy="30" r="0.5" fill="%23fff" opacity="0.6"/><circle cx="35" cy="70" r="0.7" fill="%23fff" opacity="0.5"/><circle cx="75" cy="75" r="1.2" fill="%23ffd54f" opacity="0.9"/><circle cx="50" cy="45" r="22" fill="%23e2e8f0"/><circle cx="50" cy="45" r="20" fill="%23f1f5f9"/><path d="M 36 43 A 15 15 0 0 1 64 43 Q 64 53 50 53 Q 36 53 36 43 Z" fill="%230f172a"/><path d="M 40 43 A 10 10 0 0 1 55 38" fill="none" stroke="%2338bdf8" stroke-width="1.5" stroke-linecap="round"/><path d="M 22 80 Q 22 68 50 67 Q 78 68 78 80 Z" fill="%23cbd5e0"/><path d="M 35 67 L 35 80" stroke="%2394a3b8" stroke-width="2"/><path d="M 65 67 L 65 80" stroke="%2394a3b8" stroke-width="2"/><rect x="42" y="71" width="6" height="5" rx="1" fill="%23ef4444"/><rect x="52" y="71" width="6" height="5" rx="1" fill="%233b82f6"/></svg>`;
 
-// HTML Escaper to prevent breaks
+// HTML Escaper
 function escapeHTML(str) {
   return str.replace(/[&<>'"]/g, 
     tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
@@ -866,7 +941,7 @@ function hexToRgba(hex, alpha) {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-// Global State (Generic default names "Winner Name")
+// Global State
 const state = {
   title: 'ചാന്ദ്ര ദിന ക്വിസ് വിജയികൾ',
   school: 'SN Trust HSS Thottada',
@@ -895,6 +970,16 @@ const state = {
   imageBorderThickness: 4,
   imageBorderColor: '#ffd700',
   imageBorderGlow: 10,
+
+  // Card Border configs
+  cardBorderStyle: 'none',
+  cardBorderThickness: 1,
+  cardBorderColor: '#ffffff',
+
+  // Poster Border configs
+  posterBorderStyle: 'solid',
+  posterBorderThickness: 1,
+  posterBorderColor: 'rgba(255,255,255,0.08)',
   
   firstPrizeTitle: 'First Prize',
   firstPrizeEmoji: '🥇',
@@ -923,41 +1008,54 @@ function createWinner(name, photoAlign = 'left') {
     
     // Per-card background styling & layout alignment settings
     photoAlign: photoAlign,
+    imgAlign: 'center',
     cardBgImage: '',
     bgColorColor: '#ffffff',
     bgColorOpacity: 0.05
   };
 }
 
-// Initialize with generic names "Winner Name"
-state.firstPrizes.push(createWinner('Winner Name', 'left'));
-state.secondPrizes.push(createWinner('Winner Name', 'left'));
-state.thirdPrizes.push(createWinner('Winner Name', 'top'));
-state.thirdPrizes.push(createWinner('Winner Name', 'top'));
-
-// Add Winner API
-window.addWinner = function(category) {
-  const align = (category === 'thirdPrizes') ? 'top' : 'left';
-  state[category].push(createWinner('Winner Name', align));
-  renderControls();
-  renderPoster();
-};
-
-// Delete Winner API
-window.deleteWinner = function(category, id) {
-  state[category] = state[category].filter(w => w.id !== id);
-  renderControls();
-  renderPoster();
-};
-
 // Save Project JSON
-window.saveProject = function() {
+function saveProject() {
+  saveStateToLocalStorage();
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state, null, 2));
   const dlAnchorElem = document.createElement('a');
   dlAnchorElem.setAttribute("href",     dataStr     );
   dlAnchorElem.setAttribute("download", `${state.title.replace(/\s+/g, '_')}_project.json`);
   dlAnchorElem.click();
-};
+}
+window.saveProject = saveProject;
+
+// LocalStorage Persistence Helpers
+function saveStateToLocalStorage() {
+  localStorage.setItem('poster_project_state', JSON.stringify(state));
+}
+
+function loadStateFromLocalStorage() {
+  const data = localStorage.getItem('poster_project_state');
+  if (data) {
+    try {
+      const parsed = JSON.parse(data);
+      Object.assign(state, parsed);
+      
+      // Update counters based on loaded winners to prevent ID collisions
+      let maxId = 0;
+      const scan = w => {
+        const num = parseInt(w.id.split('-')[1]);
+        if (num > maxId) maxId = num;
+      };
+      state.firstPrizes.forEach(scan);
+      state.secondPrizes.forEach(scan);
+      state.thirdPrizes.forEach(scan);
+      winnerCounter = maxId;
+      
+      return true;
+    } catch(e) {
+      console.error("Failed to load local storage state:", e);
+    }
+  }
+  return false;
+}
 
 // Load Project JSON
 window.loadProject = function(e) {
@@ -966,64 +1064,8 @@ window.loadProject = function(e) {
     try {
       const parsedState = JSON.parse(event.target.result);
       Object.assign(state, parsedState);
-      
-      // Sync Sidebar Inputs
-      document.getElementById('input-title').value = state.title;
-      document.getElementById('input-school').value = state.school;
-      document.getElementById('input-cat1-title').value = state.firstPrizeTitle || 'First Prize';
-      document.getElementById('input-cat1-emoji').value = state.firstPrizeEmoji || '🥇';
-      document.getElementById('input-cat2-title').value = state.secondPrizeTitle || 'Second Prize';
-      document.getElementById('input-cat2-emoji').value = state.secondPrizeEmoji || '🥈';
-      document.getElementById('input-cat3-title').value = state.thirdPrizeTitle || 'Third Prize';
-      document.getElementById('input-cat3-emoji').value = state.thirdPrizeEmoji || '🥉';
-      
-      document.getElementById('select-ratio').value = state.aspectRatio || 'a4';
-      document.getElementById('select-font').value = state.fontFamily || "'Noto Sans Malayalam', sans-serif";
-      document.getElementById('select-gradient').value = state.bgGradientPreset || 'cosmic';
-      document.getElementById('select-arrangement').value = state.categoryArrangement || 'standard';
-      document.getElementById('select-theme').value = state.themeStyle || 'cosmic';
-      
-      // Custom Sizing Config
-      document.getElementById('input-custom-width').value = state.customWidth || 800;
-      document.getElementById('input-custom-height').value = state.customHeight || 1000;
-      document.getElementById('group-custom-size').style.display = state.aspectRatio === 'custom' ? 'block' : 'none';
-      
-      // Custom Gradient Config
-      document.getElementById('select-grad-type').value = state.gradientType || 'radial';
-      document.getElementById('input-grad-color1').value = state.gradientColor1 || '#234aa5';
-      document.getElementById('input-grad-color2').value = state.gradientColor2 || '#081638';
-      document.getElementById('range-grad-angle').value = state.gradientAngle || 135;
-      document.getElementById('label-grad-angle').textContent = state.gradientAngle || 135;
-      document.getElementById('group-custom-gradient').style.display = state.bgGradientPreset === 'custom' ? 'flex' : 'none';
-      document.getElementById('group-grad-angle').style.display = state.gradientType === 'linear' ? 'flex' : 'none';
-      
-      // Custom Border Config
-      document.getElementById('select-border-shape').value = state.imageBorderShape || 'rounded';
-      document.getElementById('select-border-style').value = state.imageBorderStyle || 'solid';
-      document.getElementById('range-border-width').value = state.imageBorderThickness !== undefined ? state.imageBorderThickness : 4;
-      document.getElementById('label-border-width').textContent = state.imageBorderThickness !== undefined ? state.imageBorderThickness : 4;
-      document.getElementById('range-border-glow').value = state.imageBorderGlow !== undefined ? state.imageBorderGlow : 10;
-      document.getElementById('label-border-glow').textContent = state.imageBorderGlow !== undefined ? state.imageBorderGlow : 10;
-      document.getElementById('input-border-color').value = state.imageBorderColor || '#ffd700';
-
-      document.getElementById('range-bg-dim').value = state.bgDim;
-      document.getElementById('label-bg-dim').textContent = state.bgDim;
-      document.getElementById('range-bg-blur').value = state.bgBlur;
-      document.getElementById('label-bg-blur').textContent = state.bgBlur;
-      
-      // Update Classes & sizes
-      poster.className = 'poster';
-      if (state.aspectRatio !== 'custom') {
-        poster.classList.add(`size-${state.aspectRatio || 'a4'}`);
-      } else {
-        poster.style.width = `${state.customWidth}px`;
-        poster.style.minHeight = `${state.customHeight}px`;
-      }
-      poster.classList.add(`bg-${state.bgGradientPreset || 'cosmic'}`);
-      poster.classList.add(`theme-${state.themeStyle || 'cosmic'}`);
-      poster.style.fontFamily = state.fontFamily;
-      
-      updateBorders();
+      saveStateToLocalStorage();
+      syncFormInputs();
       renderControls();
       renderPoster();
       triggerConfetti();
@@ -1032,6 +1074,96 @@ window.loadProject = function(e) {
     }
   };
   fileReader.readAsText(e.target.files[0]);
+};
+
+// Sync inputs to state
+function syncFormInputs() {
+  document.getElementById('input-title').value = state.title;
+  document.getElementById('input-school').value = state.school;
+  document.getElementById('input-cat1-title').value = state.firstPrizeTitle || 'First Prize';
+  document.getElementById('input-cat1-emoji').value = state.firstPrizeEmoji || '🥇';
+  document.getElementById('input-cat2-title').value = state.secondPrizeTitle || 'Second Prize';
+  document.getElementById('input-cat2-emoji').value = state.secondPrizeEmoji || '🥈';
+  document.getElementById('input-cat3-title').value = state.thirdPrizeTitle || 'Third Prize';
+  document.getElementById('input-cat3-emoji').value = state.thirdPrizeEmoji || '🥉';
+  
+  document.getElementById('select-ratio').value = state.aspectRatio || 'a4';
+  document.getElementById('select-font').value = state.fontFamily || "'Noto Sans Malayalam', sans-serif";
+  document.getElementById('select-gradient').value = state.bgGradientPreset || 'cosmic';
+  document.getElementById('select-arrangement').value = state.categoryArrangement || 'standard';
+  document.getElementById('select-theme').value = state.themeStyle || 'cosmic';
+  
+  // Custom Size Configs
+  document.getElementById('input-custom-width').value = state.customWidth || 800;
+  document.getElementById('input-custom-height').value = state.customHeight || 1000;
+  document.getElementById('group-custom-size').style.display = state.aspectRatio === 'custom' ? 'block' : 'none';
+  
+  // Custom Gradient Configs
+  document.getElementById('select-grad-type').value = state.gradientType || 'radial';
+  document.getElementById('input-grad-color1').value = state.gradientColor1 || '#234aa5';
+  document.getElementById('input-grad-color2').value = state.gradientColor2 || '#081638';
+  document.getElementById('range-grad-angle').value = state.gradientAngle || 135;
+  document.getElementById('label-grad-angle').textContent = state.gradientAngle || 135;
+  document.getElementById('group-custom-gradient').style.display = state.bgGradientPreset === 'custom' ? 'flex' : 'none';
+  document.getElementById('group-grad-angle').style.display = state.gradientType === 'linear' ? 'flex' : 'none';
+  
+  // Custom Image Border Configs
+  document.getElementById('select-border-shape').value = state.imageBorderShape || 'rounded';
+  document.getElementById('select-border-style').value = state.imageBorderStyle || 'solid';
+  document.getElementById('range-border-width').value = state.imageBorderThickness !== undefined ? state.imageBorderThickness : 4;
+  document.getElementById('label-border-width').textContent = state.imageBorderThickness !== undefined ? state.imageBorderThickness : 4;
+  document.getElementById('range-border-glow').value = state.imageBorderGlow !== undefined ? state.imageBorderGlow : 10;
+  document.getElementById('label-border-glow').textContent = state.imageBorderGlow !== undefined ? state.imageBorderGlow : 10;
+  document.getElementById('input-border-color').value = state.imageBorderColor || '#ffd700';
+
+  // Custom Card Border Configs
+  document.getElementById('select-card-border-style').value = state.cardBorderStyle || 'none';
+  document.getElementById('range-card-border-width').value = state.cardBorderThickness !== undefined ? state.cardBorderThickness : 1;
+  document.getElementById('label-card-border-width').textContent = state.cardBorderThickness !== undefined ? state.cardBorderThickness : 1;
+  document.getElementById('input-card-border-color').value = state.cardBorderColor || '#ffffff';
+
+  // Custom Poster Border Configs
+  document.getElementById('select-poster-border-style').value = state.posterBorderStyle || 'solid';
+  document.getElementById('range-poster-border-width').value = state.posterBorderThickness !== undefined ? state.posterBorderThickness : 1;
+  document.getElementById('label-poster-border-width').textContent = state.posterBorderThickness !== undefined ? state.posterBorderThickness : 1;
+  document.getElementById('input-poster-border-color').value = state.posterBorderColor || 'rgba(255,255,255,0.08)';
+
+  document.getElementById('range-bg-dim').value = state.bgDim;
+  document.getElementById('label-bg-dim').textContent = state.bgDim;
+  document.getElementById('range-bg-blur').value = state.bgBlur;
+  document.getElementById('label-bg-blur').textContent = state.bgBlur;
+  
+  // Update canvas
+  poster.className = 'poster';
+  if (state.aspectRatio !== 'custom') {
+    poster.classList.add(`size-${state.aspectRatio || 'a4'}`);
+  } else {
+    poster.style.width = `${state.customWidth}px`;
+    poster.style.minHeight = `${state.customHeight}px`;
+  }
+  poster.classList.add(`bg-${state.bgGradientPreset || 'cosmic'}`);
+  poster.classList.add(`theme-${state.themeStyle || 'cosmic'}`);
+  poster.style.fontFamily = state.fontFamily;
+  
+  updateBorders();
+  updatePosterBackground();
+}
+
+// Add Winner API
+window.addWinner = function(category) {
+  const align = (category === 'thirdPrizes') ? 'top' : 'left';
+  state[category].push(createWinner('Winner Name', align));
+  saveStateToLocalStorage();
+  renderControls();
+  renderPoster();
+};
+
+// Delete Winner API
+window.deleteWinner = function(category, id) {
+  state[category] = state[category].filter(w => w.id !== id);
+  saveStateToLocalStorage();
+  renderControls();
+  renderPoster();
 };
 
 // Render Control Panel HTML
@@ -1068,7 +1200,7 @@ function renderControls() {
               <input type="text" class="input-winner-name" data-id="${winner.id}" data-category="${categoryName}" value="${escapeHTML(winner.name)}">
             </div>
 
-            <!-- Card Photo Position arrangement option -->
+            <!-- Card Photo Position layout settings -->
             <div class="control-group" style="margin-top: 4px;">
               <label class="control-label">Photo Position</label>
               <select class="select-winner-align" data-id="${winner.id}" data-category="${categoryName}">
@@ -1077,6 +1209,16 @@ function renderControls() {
                 <option value="top" ${winner.photoAlign === 'top' ? 'selected' : ''}>Top</option>
                 <option value="bottom" ${winner.photoAlign === 'bottom' ? 'selected' : ''}>Bottom</option>
               </select>
+            </div>
+
+            <!-- Photo Align alignment buttons (Left/Center/Right) -->
+            <div style="margin-top: 4px;">
+              <label class="control-label">Photo Align</label>
+              <div class="align-group" style="margin-top: 2px;">
+                <button class="btn-img-align ${winner.imgAlign === 'left' ? 'active' : ''}" data-id="${winner.id}" data-category="${categoryName}" data-align="left">Left</button>
+                <button class="btn-img-align ${winner.imgAlign === 'center' ? 'active' : ''}" data-id="${winner.id}" data-category="${categoryName}" data-align="center">Center</button>
+                <button class="btn-img-align ${winner.imgAlign === 'right' ? 'active' : ''}" data-id="${winner.id}" data-category="${categoryName}" data-align="right">Right</button>
+              </div>
             </div>
 
             <!-- Card Specific Background Upload -->
@@ -1169,11 +1311,12 @@ function bindDynamicControlsEvents() {
         winner.name = e.target.value;
         const posterNameEl = document.getElementById(`name-${id}`);
         if (posterNameEl) posterNameEl.textContent = e.target.value;
+        saveStateToLocalStorage();
       }
     });
   });
 
-  // Photo Alignment / Position selection (Left/Right/Top/Bottom layout within card)
+  // Photo Position selection (Left/Right/Top/Bottom layout within card)
   document.querySelectorAll('.select-winner-align').forEach(select => {
     select.addEventListener('change', (e) => {
       const id = e.target.dataset.id;
@@ -1181,12 +1324,41 @@ function bindDynamicControlsEvents() {
       const winner = state[cat].find(w => w.id === id);
       if (winner) {
         winner.photoAlign = e.target.value;
+        saveStateToLocalStorage();
         renderPoster();
       }
     });
   });
 
-  // Winner Card Background Upload
+  // Photo Align button alignments (Left/Center/Right)
+  document.querySelectorAll('.btn-img-align').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = e.target.dataset.id;
+      const cat = e.target.dataset.category;
+      const align = e.target.dataset.align;
+      const winner = state[cat].find(w => w.id === id);
+      if (winner) {
+        winner.imgAlign = align;
+        e.target.parentNode.querySelectorAll('.btn-img-align').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        saveStateToLocalStorage();
+        
+        // Update poster card container flex alignment directly
+        const posterCard = document.getElementById(`winner-card-${id}`);
+        if (posterCard) {
+          const imgWrap = posterCard.querySelector('.img-container').parentNode;
+          if (imgWrap) {
+            let flexAlign = 'center';
+            if (align === 'left') flexAlign = 'flex-start';
+            else if (align === 'right') flexAlign = 'flex-end';
+            imgWrap.style.alignSelf = flexAlign;
+          }
+        }
+      }
+    });
+  });
+
+  // Winner Card Background Upload (Base64)
   document.querySelectorAll('.input-winner-card-bg').forEach(fileInput => {
     fileInput.addEventListener('change', (e) => {
       const id = e.target.dataset.id;
@@ -1194,9 +1366,13 @@ function bindDynamicControlsEvents() {
       const winner = state[cat].find(w => w.id === id);
       const file = e.target.files[0];
       if (winner && file) {
-        const objectURL = URL.createObjectURL(file);
-        winner.cardBgImage = objectURL;
-        renderPoster();
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          winner.cardBgImage = event.target.result;
+          saveStateToLocalStorage();
+          renderPoster();
+        };
+        reader.readAsDataURL(file);
       }
     });
   });
@@ -1209,6 +1385,7 @@ function bindDynamicControlsEvents() {
       const winner = state[cat].find(w => w.id === id);
       if (winner) {
         winner.bgColorColor = e.target.value;
+        saveStateToLocalStorage();
         renderPoster();
       }
     });
@@ -1224,6 +1401,7 @@ function bindDynamicControlsEvents() {
         const val = parseFloat(e.target.value);
         winner.bgColorOpacity = val;
         document.getElementById(`label-card-opacity-${id}`).textContent = Math.round(val * 100);
+        saveStateToLocalStorage();
         
         // Live update background style on target card directly
         const posterCard = document.getElementById(`winner-card-${id}`);
@@ -1249,6 +1427,7 @@ function bindDynamicControlsEvents() {
         const val = parseFloat(e.target.value);
         winner.zoom = val;
         document.getElementById(`label-zoom-${id}`).textContent = val;
+        saveStateToLocalStorage();
         updateWinnerTransform(winner);
       }
     });
@@ -1264,6 +1443,7 @@ function bindDynamicControlsEvents() {
         const val = parseInt(e.target.value);
         winner.textY = val;
         document.getElementById(`label-texty-${id}`).textContent = val;
+        saveStateToLocalStorage();
         
         const posterCard = document.getElementById(`winner-card-${id}`);
         if (posterCard) {
@@ -1284,6 +1464,7 @@ function bindDynamicControlsEvents() {
         const val = parseInt(e.target.value);
         winner.panX = val;
         document.getElementById(`label-panx-${id}`).textContent = val;
+        saveStateToLocalStorage();
         updateWinnerTransform(winner);
       }
     });
@@ -1299,6 +1480,7 @@ function bindDynamicControlsEvents() {
         const val = parseInt(e.target.value);
         winner.panY = val;
         document.getElementById(`label-pany-${id}`).textContent = val;
+        saveStateToLocalStorage();
         updateWinnerTransform(winner);
       }
     });
@@ -1315,6 +1497,7 @@ function bindDynamicControlsEvents() {
         winner.align = align;
         e.target.parentNode.querySelectorAll('.btn-align').forEach(b => b.classList.remove('active'));
         e.target.classList.add('active');
+        saveStateToLocalStorage();
         
         const posterCard = document.getElementById(`winner-card-${id}`);
         if (posterCard) {
@@ -1325,7 +1508,7 @@ function bindDynamicControlsEvents() {
     });
   });
 
-  // Sync Winner Photo Upload
+  // Sync Winner Photo Upload (Base64)
   document.querySelectorAll('.input-winner-file').forEach(fileInput => {
     fileInput.addEventListener('change', (e) => {
       const id = e.target.dataset.id;
@@ -1333,17 +1516,22 @@ function bindDynamicControlsEvents() {
       const winner = state[cat].find(w => w.id === id);
       const file = e.target.files[0];
       if (winner && file) {
-        const objectURL = URL.createObjectURL(file);
-        winner.image = objectURL;
-        
-        const ctrlPreview = document.getElementById(`control-preview-${id}`);
-        if (ctrlPreview) ctrlPreview.src = objectURL;
-        
-        const posterImg = document.getElementById(`img-${id}`);
-        if (posterImg) {
-          posterImg.src = objectURL;
-          posterImg.onload = () => autoScale();
-        }
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const base64Url = event.target.result;
+          winner.image = base64Url;
+          saveStateToLocalStorage();
+          
+          const ctrlPreview = document.getElementById(`control-preview-${id}`);
+          if (ctrlPreview) ctrlPreview.src = base64Url;
+          
+          const posterImg = document.getElementById(`img-${id}`);
+          if (posterImg) {
+            posterImg.src = base64Url;
+            posterImg.onload = () => autoScale();
+          }
+        };
+        reader.readAsDataURL(file);
       }
     });
   });
@@ -1399,26 +1587,43 @@ function updateBorders() {
     return el;
   })();
 
-  const shape = state.imageBorderShape;
-  const borderStyle = state.imageBorderStyle;
-  const width = state.imageBorderThickness;
-  const color = state.imageBorderColor;
-  const glow = state.imageBorderGlow;
+  // Image Borders
+  const imgShape = state.imageBorderShape;
+  const imgStyle = state.imageBorderStyle;
+  const imgWidth = state.imageBorderThickness;
+  const imgColor = state.imageBorderColor;
+  const imgGlow = state.imageBorderGlow;
   
-  let borderRadius = '18px';
-  if (shape === 'circle') borderRadius = '50%';
-  else if (shape === 'square') borderRadius = '0px';
+  let imgRadius = '18px';
+  if (imgShape === 'circle') imgRadius = '50%';
+  else if (imgShape === 'square') imgRadius = '0px';
 
-  let boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
-  if (glow > 0) {
-    boxShadow = `0 0 ${glow}px ${color}, 0 4px 15px rgba(0, 0, 0, 0.3)`;
+  let imgBoxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+  if (imgGlow > 0) {
+    imgBoxShadow = `0 0 ${imgGlow}px ${imgColor}, 0 4px 15px rgba(0, 0, 0, 0.3)`;
   }
+
+  // Card Borders
+  const cardStyle = state.cardBorderStyle || 'none';
+  const cardWidth = state.cardBorderThickness !== undefined ? state.cardBorderThickness : 1;
+  const cardColor = state.cardBorderColor || '#ffffff';
+
+  // Poster Borders
+  const posterStyle = state.posterBorderStyle || 'solid';
+  const posterWidth = state.posterBorderThickness !== undefined ? state.posterBorderThickness : 1;
+  const posterColor = state.posterBorderColor || 'rgba(255,255,255,0.08)';
 
   styleEl.textContent = `
     .img-container {
-      border-radius: ${borderRadius} !important;
-      border: ${width}px ${borderStyle} ${color} !important;
-      box-shadow: ${boxShadow} !important;
+      border-radius: ${imgRadius} !important;
+      border: ${imgWidth}px ${imgStyle} ${imgColor} !important;
+      box-shadow: ${imgBoxShadow} !important;
+    }
+    .winner, .card {
+      border: ${cardWidth}px ${cardStyle} ${cardColor} !important;
+    }
+    .poster {
+      border: ${posterWidth}px ${posterStyle} ${posterColor} !important;
     }
   `;
 }
@@ -1475,10 +1680,15 @@ function renderPoster() {
     const cardClass = isColumn ? 'card' : 'winner';
     const prizeTitle = badge === state.firstPrizeEmoji ? state.firstPrizeTitle : (badge === state.secondPrizeEmoji ? state.secondPrizeTitle : state.thirdPrizeTitle);
 
+    // Apply photo self alignments inline
+    let flexAlign = 'center';
+    if (winner.imgAlign === 'left') flexAlign = 'flex-start';
+    else if (winner.imgAlign === 'right') flexAlign = 'flex-end';
+
     return `
       <div class="${cardClass}" id="winner-card-${winner.id}" style="display: flex; flex-direction: ${flexDir}; align-items: center; gap: 20px; padding: ${cardPadding}; ${cardBgStyle}">
         <div style="font-size:60px; line-height:1; ${isColumn ? 'margin-bottom: 6px;' : ''}">${badge}</div>
-        <div style="display: flex; justify-content: center; ${isColumn ? 'margin-bottom: 8px;' : ''}">
+        <div style="display: flex; justify-content: center; align-self: ${flexAlign}; ${isColumn ? 'margin-bottom: 8px;' : ''}">
           <div class="img-container">
             <img id="img-${winner.id}" src="${imgUrl}" style="${imgTransformStyle}">
           </div>
@@ -1616,11 +1826,13 @@ function setupCategoryBindings() {
 document.getElementById('input-title').addEventListener('input', (e) => {
   state.title = e.target.value;
   document.getElementById('poster-title').textContent = e.target.value;
+  saveStateToLocalStorage();
   autoScale();
 });
 document.getElementById('input-school').addEventListener('input', (e) => {
   state.school = e.target.value;
   document.getElementById('poster-school').textContent = e.target.value;
+  saveStateToLocalStorage();
   autoScale();
 });
 
@@ -1651,7 +1863,7 @@ document.getElementById('select-ratio').addEventListener('change', (e) => {
     poster.style.width = '';
     poster.style.minHeight = '';
   }
-  
+  saveStateToLocalStorage();
   autoScale();
 });
 
@@ -1660,6 +1872,7 @@ document.getElementById('input-custom-width').addEventListener('input', (e) => {
   state.customWidth = parseInt(e.target.value) || 800;
   if (state.aspectRatio === 'custom') {
     poster.style.width = `${state.customWidth}px`;
+    saveStateToLocalStorage();
     autoScale();
   }
 });
@@ -1667,6 +1880,7 @@ document.getElementById('input-custom-height').addEventListener('input', (e) => 
   state.customHeight = parseInt(e.target.value) || 1000;
   if (state.aspectRatio === 'custom') {
     poster.style.minHeight = `${state.customHeight}px`;
+    saveStateToLocalStorage();
     autoScale();
   }
 });
@@ -1675,12 +1889,14 @@ document.getElementById('input-custom-height').addEventListener('input', (e) => 
 document.getElementById('select-font').addEventListener('change', (e) => {
   state.fontFamily = e.target.value;
   poster.style.fontFamily = state.fontFamily;
+  saveStateToLocalStorage();
   autoScale();
 });
 
 // Category layout arrangement change
 document.getElementById('select-arrangement').addEventListener('change', (e) => {
   state.categoryArrangement = e.target.value;
+  saveStateToLocalStorage();
   renderPoster();
 });
 
@@ -1696,30 +1912,72 @@ document.getElementById('select-theme').addEventListener('change', (e) => {
   }
   poster.classList.add(`bg-${state.bgGradientPreset}`);
   poster.classList.add(`theme-${state.themeStyle}`);
+  saveStateToLocalStorage();
   renderPoster();
 });
 
 // Border Shapes, Styles, and Colors custom bindings
 document.getElementById('select-border-shape').addEventListener('change', (e) => {
   state.imageBorderShape = e.target.value;
+  saveStateToLocalStorage();
   updateBorders();
 });
 document.getElementById('select-border-style').addEventListener('change', (e) => {
   state.imageBorderStyle = e.target.value;
+  saveStateToLocalStorage();
   updateBorders();
 });
 document.getElementById('range-border-width').addEventListener('input', (e) => {
   state.imageBorderThickness = parseInt(e.target.value);
   document.getElementById('label-border-width').textContent = state.imageBorderThickness;
+  saveStateToLocalStorage();
   updateBorders();
 });
 document.getElementById('range-border-glow').addEventListener('input', (e) => {
   state.imageBorderGlow = parseInt(e.target.value);
   document.getElementById('label-border-glow').textContent = state.imageBorderGlow;
+  saveStateToLocalStorage();
   updateBorders();
 });
 document.getElementById('input-border-color').addEventListener('input', (e) => {
   state.imageBorderColor = e.target.value;
+  saveStateToLocalStorage();
+  updateBorders();
+});
+
+// Winner Card Border bindings
+document.getElementById('select-card-border-style').addEventListener('change', (e) => {
+  state.cardBorderStyle = e.target.value;
+  saveStateToLocalStorage();
+  updateBorders();
+});
+document.getElementById('range-card-border-width').addEventListener('input', (e) => {
+  state.cardBorderThickness = parseInt(e.target.value);
+  document.getElementById('label-card-border-width').textContent = state.cardBorderThickness;
+  saveStateToLocalStorage();
+  updateBorders();
+});
+document.getElementById('input-card-border-color').addEventListener('input', (e) => {
+  state.cardBorderColor = e.target.value;
+  saveStateToLocalStorage();
+  updateBorders();
+});
+
+// Poster Card Border bindings
+document.getElementById('select-poster-border-style').addEventListener('change', (e) => {
+  state.posterBorderStyle = e.target.value;
+  saveStateToLocalStorage();
+  updateBorders();
+});
+document.getElementById('range-poster-border-width').addEventListener('input', (e) => {
+  state.posterBorderThickness = parseInt(e.target.value);
+  document.getElementById('label-poster-border-width').textContent = state.posterBorderThickness;
+  saveStateToLocalStorage();
+  updateBorders();
+});
+document.getElementById('input-poster-border-color').addEventListener('input', (e) => {
+  state.posterBorderColor = e.target.value;
+  saveStateToLocalStorage();
   updateBorders();
 });
 
@@ -1743,7 +2001,7 @@ document.getElementById('select-gradient').addEventListener('change', (e) => {
   }
   poster.classList.add(`bg-${state.bgGradientPreset}`);
   poster.classList.add(`theme-${state.themeStyle}`);
-  
+  saveStateToLocalStorage();
   updatePosterBackground();
 });
 
@@ -1751,44 +2009,55 @@ document.getElementById('select-gradient').addEventListener('change', (e) => {
 document.getElementById('select-grad-type').addEventListener('change', (e) => {
   state.gradientType = e.target.value;
   document.getElementById('group-grad-angle').style.display = state.gradientType === 'linear' ? 'flex' : 'none';
+  saveStateToLocalStorage();
   updatePosterBackground();
 });
 document.getElementById('range-grad-angle').addEventListener('input', (e) => {
   state.gradientAngle = parseInt(e.target.value);
   document.getElementById('label-grad-angle').textContent = state.gradientAngle;
+  saveStateToLocalStorage();
   updatePosterBackground();
 });
 document.getElementById('input-grad-color1').addEventListener('input', (e) => {
   state.gradientColor1 = e.target.value;
+  saveStateToLocalStorage();
   updatePosterBackground();
 });
 document.getElementById('input-grad-color2').addEventListener('input', (e) => {
   state.gradientColor2 = e.target.value;
+  saveStateToLocalStorage();
   updatePosterBackground();
 });
 
-// Background inputs bindings
+// Background inputs bindings (Base64)
 document.getElementById('file-bg').addEventListener('change', (e) => {
   const file = e.target.files[0];
   if (file) {
-    const objectURL = URL.createObjectURL(file);
-    state.bgImage = objectURL;
-    updatePosterBackground();
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      state.bgImage = event.target.result;
+      saveStateToLocalStorage();
+      updatePosterBackground();
+    };
+    reader.readAsDataURL(file);
   }
 });
 document.getElementById('range-bg-dim').addEventListener('input', (e) => {
   state.bgDim = parseInt(e.target.value);
   document.getElementById('label-bg-dim').textContent = state.bgDim;
+  saveStateToLocalStorage();
   updatePosterBackground();
 });
 document.getElementById('range-bg-blur').addEventListener('input', (e) => {
   state.bgBlur = parseInt(e.target.value);
   document.getElementById('label-bg-blur').textContent = state.bgBlur;
+  saveStateToLocalStorage();
   updatePosterBackground();
 });
 document.getElementById('btn-reset-bg').addEventListener('click', () => {
   state.bgImage = '';
   document.getElementById('file-bg').value = '';
+  saveStateToLocalStorage();
   updatePosterBackground();
 });
 
@@ -1922,8 +2191,11 @@ function autoScale() {
 window.addEventListener('resize', autoScale);
 document.fonts.ready.then(autoScale);
 
-// Initial bootstrap rendering
-updateBorders();
+// Initial bootstrap rendering with LocalStorage recovery
+const recovered = loadStateFromLocalStorage();
+if (recovered) {
+  syncFormInputs();
+}
 renderControls();
 setupCategoryBindings();
 renderPoster();
