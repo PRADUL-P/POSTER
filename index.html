@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ചാന്ദ്ര ദിന ക്വിസ് വിജയികൾ - Poster Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans Malayalam', sans-serif;
+}
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #040d21;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Control Panel (Sidebar) */
+.control-panel {
+  width: 420px;
+  height: 100vh;
+  overflow-y: auto;
+  background: rgba(8, 22, 56, 0.95);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  flex-shrink: 0;
+}
+.control-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.control-panel::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+.control-panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+.control-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.panel-header {
+  margin-bottom: 5px;
+}
+.panel-header h2 {
+  color: #FFD54F;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 2px;
+}
+.panel-header p {
+  color: #a0aec0;
+  font-size: 12px;
+  margin: 0;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.control-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #a0aec0;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+input[type="text"]:focus {
+  outline: none;
+  border-color: #FFD54F;
+  box-shadow: 0 0 8px rgba(255, 213, 79, 0.3);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 4px 0;
+}
+
+/* Winner Edit Card */
+.winner-edit-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.winner-edit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+.winner-edit-card-header h5 {
+  margin: 0;
+  font-size: 12px;
+  color: #FFD54F;
+  font-weight: bold;
+}
+.btn-delete {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: color 0.2s;
+}
+.btn-delete:hover {
+  color: #f87171;
+}
+
+.upload-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.avatar-preview {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid gold;
+  background: #1a202c;
+  flex-shrink: 0;
+}
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.file-input-wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+.file-input-btn {
+  display: block;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.file-input-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #FFD54F;
+  color: #FFD54F;
+}
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Sliders */
+.sliders-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.slider-group label {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #a0aec0;
+  font-weight: bold;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #FFD54F;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.20);
+}
+
+.align-group {
+  display: flex;
+  gap: 4px;
+}
+.btn-align {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ccc;
+  padding: 4px;
+  font-size: 11px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-align.active {
+  background: #FFD54F;
+  color: #081638;
+  border-color: #FFD54F;
+  font-weight: bold;
+}
+.btn-align:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.btn-add-winner {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  color: #FFD54F;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-add-winner:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #FFD54F;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #FFD54F, #FFA000);
+  color: #081638;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(255, 213, 79, 0.2);
+  width: 100%;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 213, 79, 0.4);
+}
+
+/* Preview Area (Right Side) */
+.preview-area {
+  flex-grow: 1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 40px;
+  background: radial-gradient(circle at center, #0f1c3f, #040d21);
+}
+.poster-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.1s ease-out;
+}
+
+/* Original Poster styling (fixed width for exact scale print) */
+.poster {
+  width: 800px;
+  border-radius: 30px;
+  padding: 40px;
+  color: #fff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #234aa5, #081638 70%);
+}
+
+.poster-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none;
+  transition: transform 0.2s ease-out;
+}
+.poster-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  pointer-events: none;
+}
+.poster-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #FFD54F;
+  margin-bottom: 4px;
+  font-size: 38px;
+  font-weight: 900;
+  text-shadow: 0 2px 10px rgba(255, 213, 79, 0.3);
+}
+.school {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #e2e8f0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Winner Card Styles */
+.winner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 18px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 18px;
+  border: 4px solid gold;
+  background: #0d1b41;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.winner h2, .card h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #cbd5e0;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.winner h3, .card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Adapting layouts based on size categories */
+.prize-grid-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.prize-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.prize-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.footer {
+  text-align: center;
+  color: #FFD54F;
+  font-size: 30px;
+  margin-top: 15px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(255, 213, 79, 0.3);
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: none !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+  .control-panel {
+    display: none !important;
+  }
+  .preview-area {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  .poster-wrapper {
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .poster {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 auto !important;
+    background: radial-gradient(circle at top, #234aa5, #081638 70%) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Left Panel: Customizer Controls -->
+<div class="control-panel">
+  <div class="panel-header">
+    <h2>Poster Designer Pro</h2>
+    <p>Fine-tune layouts, winner counts, & backgrounds</p>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Poster Title</label>
+    <input type="text" id="input-title" value="ചാന്ദ്ര ദിന ക്വിസ് വിജയികൾ">
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">School Name</label>
+    <input type="text" id="input-school" value="SN Trust HSS Thottada">
+  </div>
+
+  <!-- Background Settings -->
+  <div class="winner-section" style="background: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 14px; border: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; gap: 10px;">
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🌌 Poster Background</h4>
+    <div class="file-input-wrapper">
+      <span class="file-input-btn">Upload Background Image</span>
+      <input type="file" id="file-bg" accept="image/*">
+    </div>
+    <div class="sliders-grid">
+      <div class="slider-group">
+        <label>Dim Overlay: <span id="label-bg-dim">30</span>%</label>
+        <input type="range" id="range-bg-dim" min="0" max="95" value="30">
+      </div>
+      <div class="slider-group">
+        <label>Blur Filter: <span id="label-bg-blur">0</span>px</label>
+        <input type="range" id="range-bg-blur" min="0" max="25" value="0">
+      </div>
+    </div>
+    <button id="btn-reset-bg" class="btn-align" style="width: 100%; margin-top: 4px; padding: 6px;">Reset to Classic Gradient</button>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Dynamic Winners Section -->
+  <div id="winner-controls-container"></div>
+
+  <button id="btn-print" class="btn-primary" style="margin-top: 10px;">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+    Print / Save to PDF
+  </button>
+</div>
+
+<!-- Right Area: Live Preview -->
+<div class="preview-area" id="preview-area">
+  <div class="poster-wrapper" id="poster-wrapper">
+    <div class="poster" id="poster">
+      <!-- Background Layers -->
+      <div class="poster-bg" id="poster-bg"></div>
+      <div class="poster-bg-overlay" id="poster-bg-overlay"></div>
+      
+      <!-- Poster Text & Winners -->
+      <div class="poster-content" id="poster-content"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Default space placeholder SVG
+const DEFAULT_AVATAR = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="%231e3a8a"/><stop offset="100%" stop-color="%230f172a"/></radialGradient></defs><rect width="100" height="100" fill="url(%23g)"/><circle cx="20" cy="20" r="0.8" fill="%23fff" opacity="0.8"/><circle cx="80" cy="30" r="0.5" fill="%23fff" opacity="0.6"/><circle cx="35" cy="70" r="0.7" fill="%23fff" opacity="0.5"/><circle cx="75" cy="75" r="1.2" fill="%23ffd54f" opacity="0.9"/><circle cx="50" cy="45" r="22" fill="%23e2e8f0"/><circle cx="50" cy="45" r="20" fill="%23f1f5f9"/><path d="M 36 43 A 15 15 0 0 1 64 43 Q 64 53 50 53 Q 36 53 36 43 Z" fill="%230f172a"/><path d="M 40 43 A 10 10 0 0 1 55 38" fill="none" stroke="%2338bdf8" stroke-width="1.5" stroke-linecap="round"/><path d="M 22 80 Q 22 68 50 67 Q 78 68 78 80 Z" fill="%23cbd5e0"/><path d="M 35 67 L 35 80" stroke="%2394a3b8" stroke-width="2"/><path d="M 65 67 L 65 80" stroke="%2394a3b8" stroke-width="2"/><rect x="42" y="71" width="6" height="5" rx="1" fill="%23ef4444"/><rect x="52" y="71" width="6" height="5" rx="1" fill="%233b82f6"/></svg>`;
+
+// HTML Escaper to prevent breaks
+function escapeHTML(str) {
+  return str.replace(/[&<>'"]/g, 
+    tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+  );
+}
+
+// Global State
+const state = {
+  title: 'ചാന്ദ്ര ദിന ക്വിസ് വിജയികൾ',
+  school: 'SN Trust HSS Thottada',
+  bgImage: '',
+  bgBlur: 0,
+  bgDim: 30,
+  
+  firstPrizes: [],
+  secondPrizes: [],
+  thirdPrizes: []
+};
+
+let winnerCounter = 0;
+function createWinner(name) {
+  winnerCounter++;
+  return {
+    id: `winner-${winnerCounter}`,
+    name: name,
+    image: '',
+    zoom: 1.0,
+    panX: 0,
+    panY: 0,
+    textY: 0,
+    align: 'center'
+  };
+}
+
+// Initialize with user's starting setup (1 first, 1 second, 2 thirds)
+state.firstPrizes.push(createWinner('Nanma Lal'));
+state.secondPrizes.push(createWinner('Nainika Mukesh'));
+state.thirdPrizes.push(createWinner('Ananya K'));
+state.thirdPrizes.push(createWinner('Aysha Salwa'));
+
+// Add Winner API
+window.addWinner = function(category) {
+  let defaultName = 'Winner Name';
+  state[category].push(createWinner(defaultName));
+  renderControls();
+  renderPoster();
+};
+
+// Delete Winner API
+window.deleteWinner = function(category, id) {
+  state[category] = state[category].filter(w => w.id !== id);
+  renderControls();
+  renderPoster();
+};
+
+// Render Control Panel HTML
+function renderControls() {
+  const container = document.getElementById('winner-controls-container');
+  if (!container) return;
+  
+  let html = '';
+
+  function getCategoryHtml(title, categoryName, list, badge) {
+    let catHtml = `
+      <div class="category-group" style="margin-bottom: 18px;">
+        <h3 style="color:#ffd54f; font-size: 15px; margin-bottom: 12px; display:flex; align-items:center; justify-content:space-between;">
+          <span>${title}</span>
+          <button class="btn-add-winner" onclick="addWinner('${categoryName}')">+ Add Winner</button>
+        </h3>
+    `;
+    
+    if (list.length === 0) {
+      catHtml += `<div style="color:#a0aec0; font-size:11px; text-align:center; padding:12px; border:1px dashed rgba(255,255,255,0.1); border-radius:8px; margin-bottom:10px;">No winners added yet</div>`;
+    } else {
+      list.forEach((winner, index) => {
+        catHtml += `
+          <div class="winner-edit-card" data-id="${winner.id}">
+            <div class="winner-edit-card-header">
+              <h5>Winner #${index + 1}</h5>
+              <button class="btn-delete" onclick="deleteWinner('${categoryName}', '${winner.id}')">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+              </button>
+            </div>
+            
+            <div class="control-group">
+              <label class="control-label">Name</label>
+              <input type="text" class="input-winner-name" data-id="${winner.id}" data-category="${categoryName}" value="${escapeHTML(winner.name)}">
+            </div>
+
+            <div class="upload-row" style="margin-top: 4px;">
+              <div class="avatar-preview">
+                <img id="control-preview-${winner.id}" src="${winner.image || DEFAULT_AVATAR}">
+              </div>
+              <div class="file-input-wrapper">
+                <span class="file-input-btn">Change Photo</span>
+                <input type="file" class="input-winner-file" data-id="${winner.id}" data-category="${categoryName}" accept="image/*">
+              </div>
+            </div>
+
+            <div class="sliders-grid" style="margin-top: 6px;">
+              <div class="slider-group">
+                <label>Zoom: <span id="label-zoom-${winner.id}">${winner.zoom}</span>x</label>
+                <input type="range" class="slider-winner-zoom" data-id="${winner.id}" data-category="${categoryName}" min="0.5" max="3" step="0.1" value="${winner.zoom}">
+              </div>
+              <div class="slider-group">
+                <label>Text Y: <span id="label-texty-${winner.id}">${winner.textY}</span>px</label>
+                <input type="range" class="slider-winner-texty" data-id="${winner.id}" data-category="${categoryName}" min="-30" max="30" step="1" value="${winner.textY}">
+              </div>
+            </div>
+
+            <div class="sliders-grid" style="margin-top: 6px;">
+              <div class="slider-group">
+                <label>Pan X: <span id="label-panx-${winner.id}">${winner.panX}</span>px</label>
+                <input type="range" class="slider-winner-panx" data-id="${winner.id}" data-category="${categoryName}" min="-80" max="80" step="1" value="${winner.panX}">
+              </div>
+              <div class="slider-group">
+                <label>Pan Y: <span id="label-pany-${winner.id}">${winner.panY}</span>px</label>
+                <input type="range" class="slider-winner-pany" data-id="${winner.id}" data-category="${categoryName}" min="-80" max="80" step="1" value="${winner.panY}">
+              </div>
+            </div>
+
+            <div style="margin-top: 6px;">
+              <label class="control-label">Text Align</label>
+              <div class="align-group" style="margin-top: 2px;">
+                <button class="btn-align ${winner.align === 'left' ? 'active' : ''}" data-id="${winner.id}" data-category="${categoryName}" data-align="left">Left</button>
+                <button class="btn-align ${winner.align === 'center' ? 'active' : ''}" data-id="${winner.id}" data-category="${categoryName}" data-align="center">Center</button>
+                <button class="btn-align ${winner.align === 'right' ? 'active' : ''}" data-id="${winner.id}" data-category="${categoryName}" data-align="right">Right</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+    
+    catHtml += `</div><hr class="divider">`;
+    return catHtml;
+  }
+
+  html += getCategoryHtml('🥇 First Prize Winners', 'firstPrizes', state.firstPrizes, '🥇');
+  html += getCategoryHtml('🥈 Second Prize Winners', 'secondPrizes', state.secondPrizes, '🥈');
+  html += getCategoryHtml('🥉 Third Prize Winners', 'thirdPrizes', state.thirdPrizes, '🥉');
+
+  container.innerHTML = html;
+  bindDynamicControlsEvents();
+}
+
+// Binds events to dynamically generated controls
+function bindDynamicControlsEvents() {
+  // Sync name text
+  document.querySelectorAll('.input-winner-name').forEach(input => {
+    input.addEventListener('input', (e) => {
+      const id = e.target.dataset.id;
+      const cat = e.target.dataset.category;
+      const winner = state[cat].find(w => w.id === id);
+      if (winner) {
+        winner.name = e.target.value;
+        const posterNameEl = document.getElementById(`name-${id}`);
+        if (posterNameEl) posterNameEl.textContent = e.target.value;
+      }
+    });
+  });
+
+  // Sync Zoom Slider
+  document.querySelectorAll('.slider-winner-zoom').forEach(slider => {
+    slider.addEventListener('input', (e) => {
+      const id = e.target.dataset.id;
+      const cat = e.target.dataset.category;
+      const winner = state[cat].find(w => w.id === id);
+      if (winner) {
+        const val = parseFloat(e.target.value);
+        winner.zoom = val;
+        document.getElementById(`label-zoom-${id}`).textContent = val;
+        updateWinnerTransform(winner);
+      }
+    });
+  });
+
+  // Sync Text Y Offset Slider
+  document.querySelectorAll('.slider-winner-texty').forEach(slider => {
+    slider.addEventListener('input', (e) => {
+      const id = e.target.dataset.id;
+      const cat = e.target.dataset.category;
+      const winner = state[cat].find(w => w.id === id);
+      if (winner) {
+        const val = parseInt(e.target.value);
+        winner.textY = val;
+        document.getElementById(`label-texty-${id}`).textContent = val;
+        
+        // Find the text block inside that winner card
+        const posterCard = document.getElementById(`winner-card-${id}`);
+        if (posterCard) {
+          const textBlock = posterCard.querySelector('.text-block');
+          if (textBlock) textBlock.style.transform = `translateY(${val}px)`;
+        }
+      }
+    });
+  });
+
+  // Sync Pan X Slider
+  document.querySelectorAll('.slider-winner-panx').forEach(slider => {
+    slider.addEventListener('input', (e) => {
+      const id = e.target.dataset.id;
+      const cat = e.target.dataset.category;
+      const winner = state[cat].find(w => w.id === id);
+      if (winner) {
+        const val = parseInt(e.target.value);
+        winner.panX = val;
+        document.getElementById(`label-panx-${id}`).textContent = val;
+        updateWinnerTransform(winner);
+      }
+    });
+  });
+
+  // Sync Pan Y Slider
+  document.querySelectorAll('.slider-winner-pany').forEach(slider => {
+    slider.addEventListener('input', (e) => {
+      const id = e.target.dataset.id;
+      const cat = e.target.dataset.category;
+      const winner = state[cat].find(w => w.id === id);
+      if (winner) {
+        const val = parseInt(e.target.value);
+        winner.panY = val;
+        document.getElementById(`label-pany-${id}`).textContent = val;
+        updateWinnerTransform(winner);
+      }
+    });
+  });
+
+  // Sync Alignment Buttons
+  document.querySelectorAll('.btn-align').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = e.target.dataset.id;
+      const cat = e.target.dataset.category;
+      const align = e.target.dataset.align;
+      const winner = state[cat].find(w => w.id === id);
+      if (winner) {
+        winner.align = align;
+        e.target.parentNode.querySelectorAll('.btn-align').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        const posterCard = document.getElementById(`winner-card-${id}`);
+        if (posterCard) {
+          const textBlock = posterCard.querySelector('.text-block');
+          if (textBlock) textBlock.style.textAlign = align;
+        }
+      }
+    });
+  });
+
+  // Sync Winner Photo Upload
+  document.querySelectorAll('.input-winner-file').forEach(fileInput => {
+    fileInput.addEventListener('change', (e) => {
+      const id = e.target.dataset.id;
+      const cat = e.target.dataset.category;
+      const winner = state[cat].find(w => w.id === id);
+      const file = e.target.files[0];
+      if (winner && file) {
+        const objectURL = URL.createObjectURL(file);
+        winner.image = objectURL;
+        
+        const ctrlPreview = document.getElementById(`control-preview-${id}`);
+        if (ctrlPreview) ctrlPreview.src = objectURL;
+        
+        const posterImg = document.getElementById(`img-${id}`);
+        if (posterImg) {
+          posterImg.src = objectURL;
+          posterImg.onload = () => autoScale();
+        }
+      }
+    });
+  });
+}
+
+function updateWinnerTransform(winner) {
+  const img = document.getElementById(`img-${winner.id}`);
+  if (img) {
+    img.style.transform = `scale(${winner.zoom}) translate(${winner.panX}px, ${winner.panY}px)`;
+  }
+}
+
+// Updates background styling dynamically
+function updatePosterBackground() {
+  const posterBg = document.getElementById('poster-bg');
+  const posterOverlay = document.getElementById('poster-bg-overlay');
+  
+  if (!posterBg || !posterOverlay) return;
+
+  if (state.bgImage) {
+    posterBg.style.backgroundImage = `url(${state.bgImage})`;
+    posterBg.style.filter = `blur(${state.bgBlur}px)`;
+    // Scale up background slightly to hide blurry bleeding borders
+    posterBg.style.transform = `scale(${1 + state.bgBlur * 0.015})`; 
+  } else {
+    posterBg.style.backgroundImage = 'none';
+    posterBg.style.filter = 'none';
+    posterBg.style.transform = 'none';
+  }
+  
+  posterOverlay.style.backgroundColor = `rgba(0, 0, 0, ${state.bgDim / 100})`;
+}
+
+// Renders the Poster DOM
+function renderPoster() {
+  const container = document.getElementById('poster-content');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  
+  // Header details
+  const headerHtml = `
+    <h1 id="poster-title">${escapeHTML(state.title)}</h1>
+    <div class="school" id="poster-school">${escapeHTML(state.school)}</div>
+  `;
+  container.insertAdjacentHTML('beforeend', headerHtml);
+
+  // Layout generators
+  function getWinnerHtml(winner, badge, isRowLayout) {
+    const textStyle = `transform: translateY(${winner.textY}px); text-align: ${winner.align};`;
+    const imgStyle = `transform: scale(${winner.zoom}) translate(${winner.panX}px, ${winner.panY}px);`;
+    const imgUrl = winner.image || DEFAULT_AVATAR;
+    
+    if (isRowLayout) {
+      return `
+        <div class="winner" id="winner-card-${winner.id}">
+          <div style="font-size:60px; line-height:1;">${badge}</div>
+          <div class="img-container">
+            <img id="img-${winner.id}" src="${imgUrl}" style="${imgStyle}">
+          </div>
+          <div class="text-block" style="${textStyle} flex-grow: 1;">
+            <h2>${badge === '🥇' ? 'First Prize' : 'Second Prize'}</h2>
+            <h3 id="name-${winner.id}">${escapeHTML(winner.name)}</h3>
+          </div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="card" id="winner-card-${winner.id}">
+          <div style="font-size:60px; line-height:1; margin-bottom: 6px;">${badge}</div>
+          <div style="display: flex; justify-content: center; margin-bottom: 8px;">
+            <div class="img-container">
+              <img id="img-${winner.id}" src="${imgUrl}" style="${imgStyle}">
+            </div>
+          </div>
+          <div class="text-block" style="${textStyle}">
+            <h2>${badge === '🥇' ? 'First Prize' : (badge === '🥈' ? 'Second Prize' : 'Third Prize')}</h2>
+            <h3 id="name-${winner.id}">${escapeHTML(winner.name)}</h3>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // 1. First Prize Category
+  if (state.firstPrizes.length > 0) {
+    const isSingle = state.firstPrizes.length === 1;
+    const gridClass = isSingle ? 'prize-grid-1' : 'prize-grid-2';
+    let groupHtml = `<div class="${gridClass}">`;
+    state.firstPrizes.forEach(winner => {
+      groupHtml += getWinnerHtml(winner, '🥇', isSingle);
+    });
+    groupHtml += `</div>`;
+    container.insertAdjacentHTML('beforeend', groupHtml);
+  }
+
+  // 2. Second Prize Category
+  if (state.secondPrizes.length > 0) {
+    const isSingle = state.secondPrizes.length === 1;
+    const gridClass = isSingle ? 'prize-grid-1' : 'prize-grid-2';
+    let groupHtml = `<div class="${gridClass}">`;
+    state.secondPrizes.forEach(winner => {
+      groupHtml += getWinnerHtml(winner, '🥈', isSingle);
+    });
+    groupHtml += `</div>`;
+    container.insertAdjacentHTML('beforeend', groupHtml);
+  }
+
+  // 3. Third Prize Category
+  if (state.thirdPrizes.length > 0) {
+    let gridClass = 'prize-grid-2'; // Default grid layout
+    if (state.thirdPrizes.length === 1) gridClass = 'prize-grid-1';
+    else if (state.thirdPrizes.length >= 3) gridClass = 'prize-grid-3';
+    
+    let groupHtml = `<div class="${gridClass}">`;
+    state.thirdPrizes.forEach(winner => {
+      groupHtml += getWinnerHtml(winner, '🥉', false);
+    });
+    groupHtml += `</div>`;
+    container.insertAdjacentHTML('beforeend', groupHtml);
+  }
+
+  // Footer congratulations
+  container.insertAdjacentHTML('beforeend', `<div class="footer">🎉 Congratulations! 🎉</div>`);
+  
+  updatePosterBackground();
+  autoScale();
+}
+
+// Binds general static inputs
+document.getElementById('input-title').addEventListener('input', (e) => {
+  state.title = e.target.value;
+  document.getElementById('poster-title').textContent = e.target.value;
+  autoScale();
+});
+document.getElementById('input-school').addEventListener('input', (e) => {
+  state.school = e.target.value;
+  document.getElementById('poster-school').textContent = e.target.value;
+  autoScale();
+});
+
+// Background inputs bindings
+document.getElementById('file-bg').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const objectURL = URL.createObjectURL(file);
+    state.bgImage = objectURL;
+    updatePosterBackground();
+  }
+});
+document.getElementById('range-bg-dim').addEventListener('input', (e) => {
+  state.bgDim = parseInt(e.target.value);
+  document.getElementById('label-bg-dim').textContent = state.bgDim;
+  updatePosterBackground();
+});
+document.getElementById('range-bg-blur').addEventListener('input', (e) => {
+  state.bgBlur = parseInt(e.target.value);
+  document.getElementById('label-bg-blur').textContent = state.bgBlur;
+  updatePosterBackground();
+});
+document.getElementById('btn-reset-bg').addEventListener('click', () => {
+  state.bgImage = '';
+  document.getElementById('file-bg').value = '';
+  updatePosterBackground();
+});
+
+// Print trigger
+document.getElementById('btn-print').addEventListener('click', () => {
+  window.print();
+});
+
+// Poster Scale-to-Fit Engine
+const poster = document.getElementById('poster');
+const wrapper = document.getElementById('poster-wrapper');
+const previewArea = document.getElementById('preview-area');
+
+function autoScale() {
+  if (!poster || !wrapper || !previewArea) return;
+  
+  const padding = 60; 
+  const previewW = previewArea.clientWidth - padding;
+  const previewH = previewArea.clientHeight - padding;
+  
+  // Reset temporarily to calculate natural size
+  poster.style.transform = 'none';
+  const naturalH = poster.scrollHeight;
+  const naturalW = 800; // Natural poster width
+  
+  const scale = Math.min(previewW / naturalW, previewH / naturalH, 1);
+  
+  poster.style.transform = `scale(${scale})`;
+  poster.style.transformOrigin = 'center center';
+  
+  wrapper.style.width = `${naturalW * scale}px`;
+  wrapper.style.height = `${naturalH * scale}px`;
+}
+
+window.addEventListener('resize', autoScale);
+document.fonts.ready.then(autoScale);
+
+// Initial bootstrap rendering
+renderControls();
+renderPoster();
+</script>
+</body>
+</html>
