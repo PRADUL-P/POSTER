@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Poster Designer Pro - Reusable Template Maker</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700;900&family=Gayathri:wght@400;700&family=Chilanka&family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700;900&family=Gayathri:wght@400;700&family=Chilanka&family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Baloo+Chettan+2:wght@400;700;800&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
 <!-- html2canvas for local client-side PNG exporting -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
@@ -103,8 +103,8 @@ select option {
 
 .divider {
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 4px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 8px 0;
 }
 
 /* Winner Edit Card */
@@ -394,26 +394,53 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /* Poster Aesthetic Templates */
-.poster.theme-cosmic {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-.poster.theme-minimalist {
-  border: none !important;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
-}
-.poster.theme-minimalist .winner, .poster.theme-minimalist .card {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-}
-.poster.theme-neon {
-  border: 2px solid #ff007f !important;
-  box-shadow: 0 0 20px #ff007f, inset 0 0 20px #ff007f !important;
-}
-.poster.theme-glass {
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-.poster.theme-royal {
-  border: 6px double #ffd700 !important;
-}
+.poster.theme-cosmic { border: 1px solid rgba(255, 255, 255, 0.08); }
+.poster.theme-minimalist { border: none !important; box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important; }
+.poster.theme-minimalist .winner, .poster.theme-minimalist .card { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important; }
+.poster.theme-neon { border: 2px solid #ff007f !important; box-shadow: 0 0 20px #ff007f, inset 0 0 20px #ff007f !important; }
+.poster.theme-glass { border: 1px solid rgba(255, 255, 255, 0.2) !important; }
+.poster.theme-royal { border: 6px double #ffd700 !important; }
+
+/* New designer themes */
+.poster.theme-academic { background: #fdfaf2 !important; color: #3b0007 !important; }
+.poster.theme-academic h1 { color: #3b0007 !important; text-shadow: none !important; }
+.poster.theme-academic .school { color: #5c0612 !important; }
+.poster.theme-academic .winner, .poster.theme-academic .card { background: #fffcf7 !important; border: 3px double #d4af37 !important; color: #3b0007 !important; box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important; }
+.poster.theme-academic .winner h2, .poster.theme-academic .card h2 { color: #5c0612 !important; }
+.poster.theme-academic .winner h3, .poster.theme-academic .card h3 { color: #3b0007 !important; }
+.poster.theme-academic .footer { color: #5c0612 !important; text-shadow: none !important; }
+
+.poster.theme-corporate { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important; color: #f8fafc !important; }
+.poster.theme-corporate h1 { color: #38bdf8 !important; text-shadow: none !important; }
+.poster.theme-corporate .school { color: #94a3b8 !important; }
+.poster.theme-corporate .winner, .poster.theme-corporate .card { background: rgba(30, 41, 59, 0.7) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important; }
+.poster.theme-corporate .winner h2, .poster.theme-corporate .card h2 { color: #38bdf8 !important; }
+.poster.theme-corporate .winner h3, .poster.theme-corporate .card h3 { color: #f8fafc !important; }
+.poster.theme-corporate .footer { color: #38bdf8 !important; text-shadow: none !important; }
+
+.poster.theme-champions { background: radial-gradient(circle, #1c1917 0%, #0c0a09 100%) !important; color: #fafaf9 !important; }
+.poster.theme-champions h1 { color: #f97316 !important; text-shadow: 0 2px 10px rgba(249,115,22,0.3) !important; }
+.poster.theme-champions .school { color: #a8a29e !important; }
+.poster.theme-champions .winner, .poster.theme-champions .card { background: #292524 !important; border: 2px solid #f97316 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important; }
+.poster.theme-champions .winner h2, .poster.theme-champions .card h2 { color: #a8a29e !important; }
+.poster.theme-champions .winner h3, .poster.theme-champions .card h3 { color: #fafaf9 !important; }
+.poster.theme-champions .footer { color: #f97316 !important; }
+
+.poster.theme-neontech { background: #000000 !important; color: #00ffcc !important; }
+.poster.theme-neontech h1 { color: #ff00ff !important; text-shadow: 0 0 10px #ff00ff !important; }
+.poster.theme-neontech .school { color: #00ffcc !important; text-shadow: 0 0 5px #00ffcc !important; }
+.poster.theme-neontech .winner, .poster.theme-neontech .card { background: rgba(0, 0, 0, 0.8) !important; border: 1.5px solid #00ffcc !important; box-shadow: 0 0 12px rgba(0, 255, 204, 0.4) !important; }
+.poster.theme-neontech .winner h2, .poster.theme-neontech .card h2 { color: #ff00ff !important; }
+.poster.theme-neontech .winner h3, .poster.theme-neontech .card h3 { color: #ffffff !important; }
+.poster.theme-neontech .footer { color: #ff00ff !important; text-shadow: 0 0 10px #ff00ff !important; }
+
+.poster.theme-modernlight { background: #f8fafc !important; color: #0f172a !important; }
+.poster.theme-modernlight h1 { color: #0f172a !important; text-shadow: none !important; }
+.poster.theme-modernlight .school { color: #475569 !important; }
+.poster.theme-modernlight .winner, .poster.theme-modernlight .card { background: #ffffff !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05) !important; color: #0f172a !important; }
+.poster.theme-modernlight .winner h2, .poster.theme-modernlight .card h2 { color: #64748b !important; }
+.poster.theme-modernlight .winner h3, .poster.theme-modernlight .card h3 { color: #0f172a !important; }
+.poster.theme-modernlight .footer { color: #0f172a !important; text-shadow: none !important; }
 
 .poster-bg {
   position: absolute;
@@ -437,9 +464,19 @@ input[type="color"]::-webkit-color-swatch {
   z-index: 1;
   pointer-events: none;
 }
+/* Canvas Overlay Pattern div */
+.poster-overlay-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
 .poster-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -456,10 +493,17 @@ h1 {
 .school {
   text-align: center;
   font-size: 22px;
-  margin-bottom: 15px;
+  margin-bottom: 4px;
   color: #e2e8f0;
   font-weight: 700;
   letter-spacing: 0.5px;
+}
+.subtitle {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #cbd5e0;
+  font-weight: 400;
 }
 
 /* Winner Card Base styles */
@@ -642,37 +686,202 @@ h1 {
   </div>
 
   <div class="control-group">
+    <label class="control-label">Subtitle</label>
+    <input type="text" id="input-subtitle" value="Competitions & Celebrations">
+  </div>
+
+  <div class="control-group">
     <label class="control-label">School Name</label>
     <input type="text" id="input-school" value="SN Trust HSS Thottada">
   </div>
 
-  <!-- Category Titles Settings -->
+  <!-- Header Ordering & Alignment settings -->
   <div class="winner-section">
-    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🏷️ Category Settings</h4>
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">📣 Header Layout Settings</h4>
+    <div class="control-group">
+      <label class="control-label">Header Order</label>
+      <select id="select-header-order">
+        <option value="school-title-subtitle">School Name -> Title -> Subtitle</option>
+        <option value="title-subtitle-school" selected>Title -> Subtitle -> School Name</option>
+        <option value="title-school-subtitle">Title -> School Name -> Subtitle</option>
+      </select>
+    </div>
+    
+    <div>
+      <label class="control-label">Header Text Align</label>
+      <div class="align-group" style="margin-top: 2px;">
+        <button class="btn-align" id="btn-header-align-left" data-align="left">Left</button>
+        <button class="btn-align active" id="btn-header-align-center" data-align="center">Center</button>
+        <button class="btn-align" id="btn-header-align-right" data-align="right">Right</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text Styles & Custom Colors -->
+  <div class="winner-section">
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🎨 Text Styles & Shadows</h4>
     <div class="sliders-grid">
       <div class="control-group">
-        <label class="control-label">1st Cat Title</label>
-        <input type="text" id="input-cat1-title" value="First Prize">
+        <label class="control-label">Title Color</label>
+        <input type="color" id="input-title-color" value="#ffd700">
       </div>
       <div class="control-group">
-        <label class="control-label">1st Badge</label>
-        <input type="text" id="input-cat1-emoji" value="🥇" style="text-align:center;">
+        <label class="control-label">School Color</label>
+        <input type="color" id="input-school-color" value="#e2e8f0">
       </div>
       <div class="control-group">
-        <label class="control-label">2nd Cat Title</label>
-        <input type="text" id="input-cat2-title" value="Second Prize">
+        <label class="control-label">Subtitle Color</label>
+        <input type="color" id="input-subtitle-color" value="#cbd5e0">
       </div>
       <div class="control-group">
-        <label class="control-label">2nd Badge</label>
-        <input type="text" id="input-cat2-emoji" value="🥈" style="text-align:center;">
+        <label class="control-label">Winner Name Color</label>
+        <input type="color" id="input-winner-name-color" value="#ffffff">
+      </div>
+    </div>
+    
+    <div class="divider"></div>
+    <div class="sliders-grid">
+      <div class="control-group">
+        <label class="control-label">Shadow Color</label>
+        <input type="color" id="input-shadow-color" value="#ffd54f">
+      </div>
+      <div class="slider-group">
+        <label>Shadow Blur: <span id="label-shadow-blur">10</span>px</label>
+        <input type="range" id="range-shadow-blur" min="0" max="25" value="10">
+      </div>
+    </div>
+    
+    <div class="sliders-grid">
+      <div class="slider-group">
+        <label>Shadow X: <span id="label-shadow-x">0</span>px</label>
+        <input type="range" id="range-shadow-x" min="-15" max="15" value="0">
+      </div>
+      <div class="slider-group">
+        <label>Shadow Y: <span id="label-shadow-y">2</span>px</label>
+        <input type="range" id="range-shadow-y" min="-15" max="15" value="2">
+      </div>
+    </div>
+
+    <div class="sliders-grid">
+      <div class="slider-group">
+        <label>Letter Spacing: <span id="label-letter-spacing">0</span>px</label>
+        <input type="range" id="range-letter-spacing" min="0" max="8" value="0">
+      </div>
+      <div class="slider-group">
+        <label>Line Height: <span id="label-line-height">1.2</span></label>
+        <input type="range" id="range-line-height" min="1" max="2" step="0.1" value="1.2">
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Logo Upload (Corner Branding) -->
+  <div class="winner-section">
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🏫 Corner Mascot / Logo</h4>
+    <div class="file-input-wrapper">
+      <span class="file-input-btn">Upload Brand Logo</span>
+      <input type="file" id="file-logo" accept="image/*">
+    </div>
+    
+    <div class="sliders-grid">
+      <div class="control-group">
+        <label class="control-label">Logo Position</label>
+        <select id="select-logo-pos">
+          <option value="top-left">Top Left</option>
+          <option value="top-right" selected>Top Right</option>
+          <option value="bottom-left">Bottom Left</option>
+          <option value="bottom-right">Bottom Right</option>
+        </select>
+      </div>
+      <div class="slider-group">
+        <label>Logo Size: <span id="label-logo-size">70</span>px</label>
+        <input type="range" id="range-logo-size" min="30" max="150" value="70">
+      </div>
+    </div>
+    <button id="btn-remove-logo" class="btn-align" style="width:100%; padding:4px;">Remove Logo</button>
+  </div>
+
+  <!-- Category Titles Settings & Badges -->
+  <div class="winner-section">
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🏷️ Category Settings & Custom Badges</h4>
+    
+    <!-- Category 1 -->
+    <div class="winner-edit-card" style="padding:8px; margin:0;">
+      <h5 style="color:#ffd54f; font-size:11px;">First Prize Settings</h5>
+      <div class="sliders-grid">
+        <div class="control-group">
+          <label class="control-label">Cat Title</label>
+          <input type="text" id="input-cat1-title" value="First Prize">
+        </div>
+        <div class="control-group">
+          <label class="control-label">Emoji Badge</label>
+          <input type="text" id="input-cat1-emoji" value="🥇">
+        </div>
+      </div>
+      <div class="file-input-wrapper" style="margin-top:4px;">
+        <span class="file-input-btn" style="padding:4px; font-size:11px;">Upload Badge Image</span>
+        <input type="file" id="file-badge1" accept="image/*">
+      </div>
+      <button class="btn-align" id="btn-clear-badge1" style="width:100%; padding:2px; font-size:10px; margin-top:2px;">Reset to Emoji</button>
+    </div>
+
+    <!-- Category 2 -->
+    <div class="winner-edit-card" style="padding:8px; margin:0;">
+      <h5 style="color:#ffd54f; font-size:11px;">Second Prize Settings</h5>
+      <div class="sliders-grid">
+        <div class="control-group">
+          <label class="control-label">Cat Title</label>
+          <input type="text" id="input-cat2-title" value="Second Prize">
+        </div>
+        <div class="control-group">
+          <label class="control-label">Emoji Badge</label>
+          <input type="text" id="input-cat2-emoji" value="🥈">
+        </div>
+      </div>
+      <div class="file-input-wrapper" style="margin-top:4px;">
+        <span class="file-input-btn" style="padding:4px; font-size:11px;">Upload Badge Image</span>
+        <input type="file" id="file-badge2" accept="image/*">
+      </div>
+      <button class="btn-align" id="btn-clear-badge2" style="width:100%; padding:2px; font-size:10px; margin-top:2px;">Reset to Emoji</button>
+    </div>
+
+    <!-- Category 3 -->
+    <div class="winner-edit-card" style="padding:8px; margin:0;">
+      <h5 style="color:#ffd54f; font-size:11px;">Third Prize Settings</h5>
+      <div class="sliders-grid">
+        <div class="control-group">
+          <label class="control-label">Cat Title</label>
+          <input type="text" id="input-cat3-title" value="Third Prize">
+        </div>
+        <div class="control-group">
+          <label class="control-label">Emoji Badge</label>
+          <input type="text" id="input-cat3-emoji" value="🥉">
+        </div>
+      </div>
+      <div class="file-input-wrapper" style="margin-top:4px;">
+        <span class="file-input-btn" style="padding:4px; font-size:11px;">Upload Badge Image</span>
+        <input type="file" id="file-badge3" accept="image/*">
+      </div>
+      <button class="btn-align" id="btn-clear-badge3" style="width:100%; padding:2px; font-size:10px; margin-top:2px;">Reset to Emoji</button>
+    </div>
+  </div>
+
+  <!-- Custom Ribbon/Banner Headers settings -->
+  <div class="winner-section">
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🎗️ Prize Ribbons & Banners</h4>
+    <div class="sliders-grid">
+      <div class="control-group">
+        <label class="control-label">Ribbon Style</label>
+        <select id="select-ribbon-style">
+          <option value="plain" selected>Plain text</option>
+          <option value="ribbon-banner">Ribbon Banner</option>
+          <option value="bordered-pill">Capsule Pill</option>
+          <option value="neon-border">Neon Glowing Frame</option>
+          <option value="retro-tape">Retro Athletic Tape</option>
+        </select>
       </div>
       <div class="control-group">
-        <label class="control-label">3rd Cat Title</label>
-        <input type="text" id="input-cat3-title" value="Third Prize">
-      </div>
-      <div class="control-group">
-        <label class="control-label">3rd Badge</label>
-        <input type="text" id="input-cat3-emoji" value="🥉" style="text-align:center;">
+        <label class="control-label">Ribbon Color</label>
+        <input type="color" id="input-ribbon-color" value="#ffd700">
       </div>
     </div>
   </div>
@@ -700,6 +909,8 @@ h1 {
           <option value="'Chilanka', sans-serif">Chilanka (Hand)</option>
           <option value="'Outfit', sans-serif">Outfit (Sans)</option>
           <option value="'Playfair Display', serif">Playfair (Serif)</option>
+          <option value="'Baloo Chettan 2', sans-serif">Baloo Chettan 2</option>
+          <option value="'Manjari', sans-serif">Manjari</option>
         </select>
       </div>
     </div>
@@ -732,11 +943,16 @@ h1 {
     <div class="control-group">
       <label class="control-label">Aesthetic Style Theme</label>
       <select id="select-theme">
-        <option value="cosmic" selected>Space Cosmic (Default)</option>
+        <option value="cosmic" selected>Space Cosmic</option>
         <option value="minimalist">Sunset Minimalist</option>
         <option value="neon">Cyberpunk Neon</option>
         <option value="glass">Aurora Glassmorphic</option>
         <option value="royal">Vintage Royal</option>
+        <option value="academic">Academic Certificate</option>
+        <option value="corporate">Corporate Professional</option>
+        <option value="champions">Champions Club (Sports)</option>
+        <option value="neontech">Neon Tech (Coding/Gaming)</option>
+        <option value="modernlight">Modern Light (Clean)</option>
       </select>
     </div>
   </div>
@@ -828,7 +1044,7 @@ h1 {
 
   <!-- Background Settings -->
   <div class="winner-section">
-    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🌌 Poster Background</h4>
+    <h4 style="margin:0; font-size:14px; color:#ffd54f;">🌌 Poster Background & Overlays</h4>
     <div class="file-input-wrapper">
       <span class="file-input-btn">Upload Background Image</span>
       <input type="file" id="file-bg" accept="image/*">
@@ -843,6 +1059,24 @@ h1 {
         <input type="range" id="range-bg-blur" min="0" max="25" value="0">
       </div>
     </div>
+
+    <!-- Decorative Overlay Selection -->
+    <div class="sliders-grid" style="margin-top: 4px;">
+      <div class="control-group">
+        <label class="control-label">Overlay Texture</label>
+        <select id="select-overlay-effect">
+          <option value="none" selected>None</option>
+          <option value="light-leak">Light Leak Aura</option>
+          <option value="confetti-sparkles">Confetti Sparkles</option>
+          <option value="gold-dust">Metallic Gold Dust</option>
+        </select>
+      </div>
+      <div class="slider-group">
+        <label>Overlay Opacity: <span id="label-overlay-opacity">30</span>%</label>
+        <input type="range" id="range-overlay-opacity" min="0" max="100" value="30">
+      </div>
+    </div>
+
     <div class="control-group" style="margin-top: 4px;">
       <label class="control-label">Gradient Preset</label>
       <select id="select-gradient">
@@ -915,6 +1149,9 @@ h1 {
       <div class="poster-bg" id="poster-bg"></div>
       <div class="poster-bg-overlay" id="poster-bg-overlay"></div>
       
+      <!-- Canvas Overlay pattern -->
+      <div class="poster-overlay-effect" id="poster-overlay"></div>
+      
       <!-- Poster Text & Winners -->
       <div class="poster-content" id="poster-content"></div>
     </div>
@@ -944,6 +1181,7 @@ function hexToRgba(hex, alpha) {
 // Global State
 const state = {
   title: 'ചാന്ദ്ര ദിന ക്വിസ് വിജയികൾ',
+  subtitle: 'Competitions & Celebrations',
   school: 'SN Trust HSS Thottada',
   bgImage: '',
   bgBlur: 0,
@@ -980,13 +1218,45 @@ const state = {
   posterBorderStyle: 'solid',
   posterBorderThickness: 1,
   posterBorderColor: 'rgba(255,255,255,0.08)',
+
+  // Mascot/Logo Branding
+  logoImage: '',
+  logoPosition: 'top-right',
+  logoSize: 70,
+
+  // Text Styling & Shadows
+  titleColor: '#ffd700',
+  schoolColor: '#e2e8f0',
+  subtitleColor: '#cbd5e0',
+  winnerNameColor: '#ffffff',
+  textShadowColor: '#ffd54f',
+  textShadowBlur: 10,
+  textShadowOffsetX: 0,
+  textShadowOffsetY: 2,
+  titleLetterSpacing: 0,
+  titleLineHeight: 1.2,
+
+  // Header Ordering and Alignments
+  headerLayoutOrder: 'title-subtitle-school',
+  headerAlign: 'center',
+
+  // Decorative Canvas Overlays
+  overlayEffect: 'none',
+  overlayOpacity: 0.3,
+
+  // Custom Category Ribbon banners
+  categoryRibbonStyle: 'plain',
+  categoryRibbonColor: '#ffd700',
   
   firstPrizeTitle: 'First Prize',
   firstPrizeEmoji: '🥇',
+  firstPrizeBadgeImg: '',
   secondPrizeTitle: 'Second Prize',
   secondPrizeEmoji: '🥈',
+  secondPrizeBadgeImg: '',
   thirdPrizeTitle: 'Third Prize',
   thirdPrizeEmoji: '🥉',
+  thirdPrizeBadgeImg: '',
   
   firstPrizes: [],
   secondPrizes: [],
@@ -1079,6 +1349,7 @@ window.loadProject = function(e) {
 // Sync inputs to state
 function syncFormInputs() {
   document.getElementById('input-title').value = state.title;
+  document.getElementById('input-subtitle').value = state.subtitle || '';
   document.getElementById('input-school').value = state.school;
   document.getElementById('input-cat1-title').value = state.firstPrizeTitle || 'First Prize';
   document.getElementById('input-cat1-emoji').value = state.firstPrizeEmoji || '🥇';
@@ -1092,6 +1363,42 @@ function syncFormInputs() {
   document.getElementById('select-gradient').value = state.bgGradientPreset || 'cosmic';
   document.getElementById('select-arrangement').value = state.categoryArrangement || 'standard';
   document.getElementById('select-theme').value = state.themeStyle || 'cosmic';
+
+  // Mascot/Logo values
+  document.getElementById('select-logo-pos').value = state.logoPosition || 'top-right';
+  document.getElementById('range-logo-size').value = state.logoSize || 70;
+  document.getElementById('label-logo-size').textContent = state.logoSize || 70;
+
+  // Text Styling values
+  document.getElementById('input-title-color').value = state.titleColor || '#ffd700';
+  document.getElementById('input-school-color').value = state.schoolColor || '#e2e8f0';
+  document.getElementById('input-subtitle-color').value = state.subtitleColor || '#cbd5e0';
+  document.getElementById('input-winner-name-color').value = state.winnerNameColor || '#ffffff';
+  document.getElementById('input-shadow-color').value = state.textShadowColor || '#ffd54f';
+  document.getElementById('range-shadow-blur').value = state.textShadowBlur !== undefined ? state.textShadowBlur : 10;
+  document.getElementById('label-shadow-blur').textContent = state.textShadowBlur !== undefined ? state.textShadowBlur : 10;
+  document.getElementById('range-shadow-x').value = state.textShadowOffsetX !== undefined ? state.textShadowOffsetX : 0;
+  document.getElementById('label-shadow-x').textContent = state.textShadowOffsetX !== undefined ? state.textShadowOffsetX : 0;
+  document.getElementById('range-shadow-y').value = state.textShadowOffsetY !== undefined ? state.textShadowOffsetY : 2;
+  document.getElementById('label-shadow-y').textContent = state.textShadowOffsetY !== undefined ? state.textShadowOffsetY : 2;
+  document.getElementById('range-letter-spacing').value = state.titleLetterSpacing !== undefined ? state.titleLetterSpacing : 0;
+  document.getElementById('label-letter-spacing').textContent = state.titleLetterSpacing !== undefined ? state.titleLetterSpacing : 0;
+  document.getElementById('range-line-height').value = state.titleLineHeight !== undefined ? state.titleLineHeight : 1.2;
+  document.getElementById('label-line-height').textContent = state.titleLineHeight !== undefined ? state.titleLineHeight : 1.2;
+
+  // Header Ordering and align
+  document.getElementById('select-header-order').value = state.headerLayoutOrder || 'title-subtitle-school';
+  document.querySelectorAll('[id^="btn-header-align-"]').forEach(b => b.classList.remove('active'));
+  document.getElementById(`btn-header-align-${state.headerAlign || 'center'}`).classList.add('active');
+
+  // Decorative overlays
+  document.getElementById('select-overlay-effect').value = state.overlayEffect || 'none';
+  document.getElementById('range-overlay-opacity').value = (state.overlayOpacity !== undefined ? state.overlayOpacity : 0.3) * 100;
+  document.getElementById('label-overlay-opacity').textContent = Math.round((state.overlayOpacity !== undefined ? state.overlayOpacity : 0.3) * 100);
+
+  // Category Ribbons
+  document.getElementById('select-ribbon-style').value = state.categoryRibbonStyle || 'plain';
+  document.getElementById('input-ribbon-color').value = state.categoryRibbonColor || '#ffd700';
   
   // Custom Size Configs
   document.getElementById('input-custom-width').value = state.customWidth || 800;
@@ -1107,7 +1414,7 @@ function syncFormInputs() {
   document.getElementById('group-custom-gradient').style.display = state.bgGradientPreset === 'custom' ? 'flex' : 'none';
   document.getElementById('group-grad-angle').style.display = state.gradientType === 'linear' ? 'flex' : 'none';
   
-  // Custom Image Border Configs
+  // Custom Border Configs
   document.getElementById('select-border-shape').value = state.imageBorderShape || 'rounded';
   document.getElementById('select-border-style').value = state.imageBorderStyle || 'solid';
   document.getElementById('range-border-width').value = state.imageBorderThickness !== undefined ? state.imageBorderThickness : 4;
@@ -1463,7 +1770,7 @@ function bindDynamicControlsEvents() {
       if (winner) {
         const val = parseInt(e.target.value);
         winner.panX = val;
-        document.getElementById(`label-panx-${id}`).textContent = val;
+        document.getElementById('label-panx-' + id).textContent = val;
         saveStateToLocalStorage();
         updateWinnerTransform(winner);
       }
@@ -1479,7 +1786,7 @@ function bindDynamicControlsEvents() {
       if (winner) {
         const val = parseInt(e.target.value);
         winner.panY = val;
-        document.getElementById(`label-pany-${id}`).textContent = val;
+        document.getElementById('label-pany-' + id).textContent = val;
         saveStateToLocalStorage();
         updateWinnerTransform(winner);
       }
@@ -1548,8 +1855,9 @@ function updateWinnerTransform(winner) {
 function updatePosterBackground() {
   const posterBg = document.getElementById('poster-bg');
   const posterOverlay = document.getElementById('poster-bg-overlay');
+  const patternOverlay = document.getElementById('poster-overlay');
   
-  if (!posterBg || !posterOverlay || !poster) return;
+  if (!posterBg || !posterOverlay || !poster || !patternOverlay) return;
 
   // Clear gradient classes if custom gradient is chosen
   poster.classList.remove('bg-cosmic', 'bg-sunset', 'bg-neon', 'bg-emerald', 'bg-ruby');
@@ -1576,6 +1884,24 @@ function updatePosterBackground() {
   }
   
   posterOverlay.style.backgroundColor = `rgba(0, 0, 0, ${state.bgDim / 100})`;
+
+  // Decorative overlays styling
+  patternOverlay.style.backgroundImage = '';
+  patternOverlay.style.backgroundSize = '';
+  patternOverlay.style.backgroundPosition = '';
+  patternOverlay.style.opacity = state.overlayOpacity;
+
+  if (state.overlayEffect === 'light-leak') {
+    patternOverlay.style.background = `radial-gradient(circle at 10% 20%, rgba(255, 0, 127, 0.20) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.20) 0%, transparent 45%)`;
+  } else if (state.overlayEffect === 'confetti-sparkles') {
+    patternOverlay.style.backgroundImage = `radial-gradient(rgba(255, 213, 79, 0.25) 1px, transparent 1px), radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px)`;
+    patternOverlay.style.backgroundSize = `24px 24px, 48px 48px`;
+    patternOverlay.style.backgroundPosition = `0 0, 12px 12px`;
+  } else if (state.overlayEffect === 'gold-dust') {
+    patternOverlay.style.backgroundImage = `radial-gradient(#d4af37 1px, transparent 0), radial-gradient(#d4af37 2px, transparent 0)`;
+    patternOverlay.style.backgroundSize = `10px 10px, 30px 30px`;
+    patternOverlay.style.backgroundPosition = `0 0, 5px 5px`;
+  }
 }
 
 // Binds dynamic styles for image borders
@@ -1628,18 +1954,66 @@ function updateBorders() {
   `;
 }
 
+// Renders the Ribbon layout style for card categories
+function getRibbonStyleHTML(titleText) {
+  const ribbonStyle = state.categoryRibbonStyle || 'plain';
+  const ribbonColor = state.categoryRibbonColor || '#ffd700';
+  
+  if (ribbonStyle === 'plain') {
+    return `<h2 style="margin-bottom: 2px;">${escapeHTML(titleText)}</h2>`;
+  }
+  
+  let inlineStyle = '';
+  if (ribbonStyle === 'ribbon-banner') {
+    inlineStyle = `background: ${ribbonColor}; color: #000; padding: 4px 10px; border-radius: 6px; display: inline-block; font-size: 11px; margin-bottom: 6px; font-weight: 800;`;
+  } else if (ribbonStyle === 'bordered-pill') {
+    inlineStyle = `border: 1.5px solid ${ribbonColor}; color: ${ribbonColor}; padding: 3px 12px; border-radius: 9999px; display: inline-block; font-size: 11px; margin-bottom: 6px; font-weight: 800;`;
+  } else if (ribbonStyle === 'neon-border') {
+    inlineStyle = `border: 1px solid ${ribbonColor}; color: #fff; text-shadow: 0 0 5px ${ribbonColor}; box-shadow: 0 0 8px ${ribbonColor}; padding: 4px 10px; border-radius: 4px; display: inline-block; font-size: 11px; margin-bottom: 6px; font-weight: 800;`;
+  } else if (ribbonStyle === 'retro-tape') {
+    inlineStyle = `background: ${ribbonColor}; color: #000; padding: 4px 12px; transform: rotate(-2deg); display: inline-block; font-size: 11px; margin-bottom: 6px; font-weight: 900; box-shadow: 2px 2px 0 rgba(0,0,0,0.15);`;
+  }
+  
+  return `<div><h2 style="${inlineStyle}">${escapeHTML(titleText)}</h2></div>`;
+}
+
 // Renders the Poster DOM
 function renderPoster() {
   const container = document.getElementById('poster-content');
   if (!container) return;
   
   container.innerHTML = '';
+
+  // Render floating Mascot / Brand Logo if exists
+  if (state.logoImage) {
+    let logoCoordStyle = 'top:20px; right:20px;';
+    if (state.logoPosition === 'top-left') logoCoordStyle = 'top:20px; left:20px;';
+    else if (state.logoPosition === 'bottom-left') logoCoordStyle = 'bottom:20px; left:20px;';
+    else if (state.logoPosition === 'bottom-right') logoCoordStyle = 'bottom:20px; right:20px;';
+    
+    const logoHtml = `<img src="${state.logoImage}" style="position: absolute; ${logoCoordStyle} width: ${state.logoSize}px; height: auto; z-index: 10; object-fit: contain; pointer-events: none;">`;
+    container.insertAdjacentHTML('beforeend', logoHtml);
+  }
+
+  // Header Elements Styling overrides
+  const textShadowStyle = `${state.textShadowOffsetX}px ${state.textShadowOffsetY}px ${state.textShadowBlur}px ${state.textShadowColor}`;
+  const titleStyle = `color: ${state.titleColor}; text-shadow: ${textShadowStyle}; letter-spacing: ${state.titleLetterSpacing}px; line-height: ${state.titleLineHeight};`;
+  const schoolStyle = `color: ${state.schoolColor};`;
+  const subtitleStyle = `color: ${state.subtitleColor};`;
   
-  // Header details
-  const headerHtml = `
-    <h1 id="poster-title">${escapeHTML(state.title)}</h1>
-    <div class="school" id="poster-school">${escapeHTML(state.school)}</div>
-  `;
+  // Arrange Header layout ordering
+  const headerNodeMap = {
+    'title': `<h1 id="poster-title" style="${titleStyle}">${escapeHTML(state.title)}</h1>`,
+    'school': `<div class="school" id="poster-school" style="${schoolStyle}">${escapeHTML(state.school)}</div>`,
+    'subtitle': `<div class="subtitle" id="poster-subtitle" style="${subtitleStyle}">${escapeHTML(state.subtitle)}</div>`
+  };
+
+  const layoutOrder = (state.headerLayoutOrder || 'title-subtitle-school').split('-');
+  let headerHtml = `<div style="text-align: ${state.headerAlign || 'center'}; flex-shrink: 0;">`;
+  layoutOrder.forEach(key => {
+    if (headerNodeMap[key]) headerHtml += headerNodeMap[key];
+  });
+  headerHtml += `</div>`;
   container.insertAdjacentHTML('beforeend', headerHtml);
 
   // Layout generators
@@ -1685,17 +2059,28 @@ function renderPoster() {
     if (winner.imgAlign === 'left') flexAlign = 'flex-start';
     else if (winner.imgAlign === 'right') flexAlign = 'flex-end';
 
+    // Badge customization (Emoji fallback vs Uploaded Image badge)
+    let badgeHTML = `<div style="font-size:60px; line-height:1; ${isColumn ? 'margin-bottom: 6px;' : ''}">${badge}</div>`;
+    let customBadgeUrl = '';
+    if (badge === state.firstPrizeEmoji && state.firstPrizeBadgeImg) customBadgeUrl = state.firstPrizeBadgeImg;
+    else if (badge === state.secondPrizeEmoji && state.secondPrizeBadgeImg) customBadgeUrl = state.secondPrizeBadgeImg;
+    else if (badge === state.thirdPrizeEmoji && state.thirdPrizeBadgeImg) customBadgeUrl = state.thirdPrizeBadgeImg;
+
+    if (customBadgeUrl) {
+      badgeHTML = `<img src="${customBadgeUrl}" style="width:64px; height:64px; object-fit:contain; flex-shrink:0; ${isColumn ? 'margin-bottom: 6px;' : ''}">`;
+    }
+
     return `
       <div class="${cardClass}" id="winner-card-${winner.id}" style="display: flex; flex-direction: ${flexDir}; align-items: center; gap: 20px; padding: ${cardPadding}; ${cardBgStyle}">
-        <div style="font-size:60px; line-height:1; ${isColumn ? 'margin-bottom: 6px;' : ''}">${badge}</div>
+        ${badgeHTML}
         <div style="display: flex; justify-content: center; align-self: ${flexAlign}; ${isColumn ? 'margin-bottom: 8px;' : ''}">
           <div class="img-container">
             <img id="img-${winner.id}" src="${imgUrl}" style="${imgTransformStyle}">
           </div>
         </div>
         <div class="text-block" style="${textStyle} flex-grow: 1;">
-          <h2>${escapeHTML(prizeTitle)}</h2>
-          <h3 id="name-${winner.id}">${escapeHTML(winner.name)}</h3>
+          ${getRibbonStyleHTML(prizeTitle)}
+          <h3 id="name-${winner.id}" style="color: ${state.winnerNameColor || '#ffffff'};">${escapeHTML(winner.name)}</h3>
         </div>
       </div>
     `;
@@ -1810,6 +2195,7 @@ function setupCategoryBindings() {
       state[c.stateTitle] = e.target.value;
       const label = document.getElementById(c.labelId);
       if (label) label.querySelector('span').textContent = `${state[c.stateEmoji]} ${state[c.stateTitle]} Winners`;
+      saveStateToLocalStorage();
       renderPoster();
     });
 
@@ -1817,6 +2203,38 @@ function setupCategoryBindings() {
       state[c.stateEmoji] = e.target.value;
       const label = document.getElementById(c.labelId);
       if (label) label.querySelector('span').textContent = `${state[c.stateEmoji]} ${state[c.stateTitle]} Winners`;
+      saveStateToLocalStorage();
+      renderPoster();
+    });
+  });
+}
+
+// Binds custom image badges file uploads (Base64)
+function setupBadgeUploadBindings() {
+  const config = [
+    { fileId: 'file-badge1', clearId: 'btn-clear-badge1', stateKey: 'firstPrizeBadgeImg' },
+    { fileId: 'file-badge2', clearId: 'btn-clear-badge2', stateKey: 'secondPrizeBadgeImg' },
+    { fileId: 'file-badge3', clearId: 'btn-clear-badge3', stateKey: 'thirdPrizeBadgeImg' }
+  ];
+
+  config.forEach(c => {
+    document.getElementById(c.fileId).addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          state[c.stateKey] = evt.target.result;
+          saveStateToLocalStorage();
+          renderPoster();
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    document.getElementById(c.clearId).addEventListener('click', () => {
+      state[c.stateKey] = '';
+      document.getElementById(c.fileId).value = '';
+      saveStateToLocalStorage();
       renderPoster();
     });
   });
@@ -1825,15 +2243,145 @@ function setupCategoryBindings() {
 // Binds general static inputs
 document.getElementById('input-title').addEventListener('input', (e) => {
   state.title = e.target.value;
-  document.getElementById('poster-title').textContent = e.target.value;
+  const posterTitle = document.getElementById('poster-title');
+  if (posterTitle) posterTitle.textContent = e.target.value;
+  saveStateToLocalStorage();
+  autoScale();
+});
+document.getElementById('input-subtitle').addEventListener('input', (e) => {
+  state.subtitle = e.target.value;
+  const posterSubtitle = document.getElementById('poster-subtitle');
+  if (posterSubtitle) posterSubtitle.textContent = e.target.value;
   saveStateToLocalStorage();
   autoScale();
 });
 document.getElementById('input-school').addEventListener('input', (e) => {
   state.school = e.target.value;
-  document.getElementById('poster-school').textContent = e.target.value;
+  const posterSchool = document.getElementById('poster-school');
+  if (posterSchool) posterSchool.textContent = e.target.value;
   saveStateToLocalStorage();
   autoScale();
+});
+
+// Header alignment buttons bindings
+document.querySelectorAll('[id^="btn-header-align-"]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const align = e.target.dataset.align;
+    state.headerAlign = align;
+    
+    document.querySelectorAll('[id^="btn-header-align-"]').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    
+    saveStateToLocalStorage();
+    renderPoster();
+  });
+});
+
+// Header ordering select change
+document.getElementById('select-header-order').addEventListener('change', (e) => {
+  state.headerLayoutOrder = e.target.value;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+
+// Typography Custom Styles bindings
+document.getElementById('input-title-color').addEventListener('input', (e) => {
+  state.titleColor = e.target.value;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('input-school-color').addEventListener('input', (e) => {
+  state.schoolColor = e.target.value;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('input-subtitle-color').addEventListener('input', (e) => {
+  state.subtitleColor = e.target.value;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('input-winner-name-color').addEventListener('input', (e) => {
+  state.winnerNameColor = e.target.value;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('input-shadow-color').addEventListener('input', (e) => {
+  state.textShadowColor = e.target.value;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('range-shadow-blur').addEventListener('input', (e) => {
+  state.textShadowBlur = parseInt(e.target.value);
+  document.getElementById('label-shadow-blur').textContent = state.textShadowBlur;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('range-shadow-x').addEventListener('input', (e) => {
+  state.textShadowOffsetX = parseInt(e.target.value);
+  document.getElementById('label-shadow-x').textContent = state.textShadowOffsetX;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('range-shadow-y').addEventListener('input', (e) => {
+  state.textShadowOffsetY = parseInt(e.target.value);
+  document.getElementById('label-shadow-y').textContent = state.textShadowOffsetY;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('range-letter-spacing').addEventListener('input', (e) => {
+  state.titleLetterSpacing = parseInt(e.target.value);
+  document.getElementById('label-letter-spacing').textContent = state.titleLetterSpacing;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('range-line-height').addEventListener('input', (e) => {
+  state.titleLineHeight = parseFloat(e.target.value);
+  document.getElementById('label-line-height').textContent = state.titleLineHeight;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+
+// Logo mascot image uploads
+document.getElementById('file-logo').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      state.logoImage = evt.target.result;
+      saveStateToLocalStorage();
+      renderPoster();
+    };
+    reader.readAsDataURL(file);
+  }
+});
+document.getElementById('select-logo-pos').addEventListener('change', (e) => {
+  state.logoPosition = e.target.value;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('range-logo-size').addEventListener('input', (e) => {
+  state.logoSize = parseInt(e.target.value);
+  document.getElementById('label-logo-size').textContent = state.logoSize;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('btn-remove-logo').addEventListener('click', () => {
+  state.logoImage = '';
+  document.getElementById('file-logo').value = '';
+  saveStateToLocalStorage();
+  renderPoster();
+});
+
+// Category Ribbons Banners bindings
+document.getElementById('select-ribbon-style').addEventListener('change', (e) => {
+  state.categoryRibbonStyle = e.target.value;
+  saveStateToLocalStorage();
+  renderPoster();
+});
+document.getElementById('input-ribbon-color').addEventListener('input', (e) => {
+  state.categoryRibbonColor = e.target.value;
+  saveStateToLocalStorage();
+  renderPoster();
 });
 
 // Layout Ratio/Size change
@@ -1979,6 +2527,19 @@ document.getElementById('input-poster-border-color').addEventListener('input', (
   state.posterBorderColor = e.target.value;
   saveStateToLocalStorage();
   updateBorders();
+});
+
+// Decorative Canvas overlay select & opacity sliders
+document.getElementById('select-overlay-effect').addEventListener('change', (e) => {
+  state.overlayEffect = e.target.value;
+  saveStateToLocalStorage();
+  updatePosterBackground();
+});
+document.getElementById('range-overlay-opacity').addEventListener('input', (e) => {
+  state.overlayOpacity = parseFloat(e.target.value) / 100;
+  document.getElementById('label-overlay-opacity').textContent = e.target.value;
+  saveStateToLocalStorage();
+  updatePosterBackground();
 });
 
 // Gradient Preset change
@@ -2198,6 +2759,7 @@ if (recovered) {
 }
 renderControls();
 setupCategoryBindings();
+setupBadgeUploadBindings();
 renderPoster();
 </script>
 </body>

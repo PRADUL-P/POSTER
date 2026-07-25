@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Poster Designer Pro - Visual Canvas Editor</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700;900&family=Gayathri:wght@400;700&family=Chilanka&family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700;900&family=Gayathri:wght@400;700&family=Chilanka&family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Baloo+Chettan+2:wght@400;700;800&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
 <!-- html2canvas for local client-side PNG exporting -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
@@ -108,6 +108,7 @@ body {
   padding: 40px;
   background: radial-gradient(circle at center, #0f1c3f, #040d21);
   position: relative;
+  transition: height 0.3s ease;
 }
 .poster-wrapper {
   position: relative;
@@ -174,6 +175,47 @@ body {
 .poster.theme-glass { border: 1px solid rgba(255, 255, 255, 0.2) !important; }
 .poster.theme-royal { border: 6px double #ffd700 !important; }
 
+/* New themes */
+.poster.theme-academic { background: #fdfaf2 !important; color: #3b0007 !important; }
+.poster.theme-academic h1 { color: #3b0007 !important; text-shadow: none !important; }
+.poster.theme-academic .school { color: #5c0612 !important; }
+.poster.theme-academic .winner, .poster.theme-academic .card { background: #fffcf7 !important; border: 3px double #d4af37 !important; color: #3b0007 !important; box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important; }
+.poster.theme-academic .winner h2, .poster.theme-academic .card h2 { color: #5c0612 !important; }
+.poster.theme-academic .winner h3, .poster.theme-academic .card h3 { color: #3b0007 !important; }
+.poster.theme-academic .footer { color: #5c0612 !important; text-shadow: none !important; }
+
+.poster.theme-corporate { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important; color: #f8fafc !important; }
+.poster.theme-corporate h1 { color: #38bdf8 !important; text-shadow: none !important; }
+.poster.theme-corporate .school { color: #94a3b8 !important; }
+.poster.theme-corporate .winner, .poster.theme-corporate .card { background: rgba(30, 41, 59, 0.7) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important; }
+.poster.theme-corporate .winner h2, .poster.theme-corporate .card h2 { color: #38bdf8 !important; }
+.poster.theme-corporate .winner h3, .poster.theme-corporate .card h3 { color: #f8fafc !important; }
+.poster.theme-corporate .footer { color: #38bdf8 !important; text-shadow: none !important; }
+
+.poster.theme-champions { background: radial-gradient(circle, #1c1917 0%, #0c0a09 100%) !important; color: #fafaf9 !important; }
+.poster.theme-champions h1 { color: #f97316 !important; text-shadow: 0 2px 10px rgba(249,115,22,0.3) !important; }
+.poster.theme-champions .school { color: #a8a29e !important; }
+.poster.theme-champions .winner, .poster.theme-champions .card { background: #292524 !important; border: 2px solid #f97316 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important; }
+.poster.theme-champions .winner h2, .poster.theme-champions .card h2 { color: #a8a29e !important; }
+.poster.theme-champions .winner h3, .poster.theme-champions .card h3 { color: #fafaf9 !important; }
+.poster.theme-champions .footer { color: #f97316 !important; }
+
+.poster.theme-neontech { background: #000000 !important; color: #00ffcc !important; }
+.poster.theme-neontech h1 { color: #ff00ff !important; text-shadow: 0 0 10px #ff00ff !important; }
+.poster.theme-neontech .school { color: #00ffcc !important; text-shadow: 0 0 5px #00ffcc !important; }
+.poster.theme-neontech .winner, .poster.theme-neontech .card { background: rgba(0, 0, 0, 0.8) !important; border: 1.5px solid #00ffcc !important; box-shadow: 0 0 12px rgba(0, 255, 204, 0.4) !important; }
+.poster.theme-neontech .winner h2, .poster.theme-neontech .card h2 { color: #ff00ff !important; }
+.poster.theme-neontech .winner h3, .poster.theme-neontech .card h3 { color: #ffffff !important; }
+.poster.theme-neontech .footer { color: #ff00ff !important; text-shadow: 0 0 10px #ff00ff !important; }
+
+.poster.theme-modernlight { background: #f8fafc !important; color: #0f172a !important; }
+.poster.theme-modernlight h1 { color: #0f172a !important; text-shadow: none !important; }
+.poster.theme-modernlight .school { color: #475569 !important; }
+.poster.theme-modernlight .winner, .poster.theme-modernlight .card { background: #ffffff !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05) !important; color: #0f172a !important; }
+.poster.theme-modernlight .winner h2, .poster.theme-modernlight .card h2 { color: #64748b !important; }
+.poster.theme-modernlight .winner h3, .poster.theme-modernlight .card h3 { color: #0f172a !important; }
+.poster.theme-modernlight .footer { color: #0f172a !important; text-shadow: none !important; }
+
 .poster-bg {
   position: absolute;
   top: 0;
@@ -196,9 +238,19 @@ body {
   z-index: 1;
   pointer-events: none;
 }
+/* Canvas Overlay Pattern div */
+.poster-overlay-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
 .poster-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -233,10 +285,17 @@ h1 {
 .school {
   text-align: center;
   font-size: 22px;
-  margin-bottom: 15px;
+  margin-bottom: 4px;
   color: #e2e8f0;
   font-weight: 700;
   letter-spacing: 0.5px;
+}
+.subtitle {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #cbd5e0;
+  font-weight: 400;
 }
 
 /* Winner Card Base */
@@ -356,6 +415,29 @@ h1 {
   margin-top: 2px;
 }
 
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.control-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #a0aec0;
+}
+input[type="text"], input[type="number"], select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+}
+
 .align-group {
   display: flex;
   gap: 4px;
@@ -379,10 +461,31 @@ h1 {
   font-weight: bold;
 }
 
+/* Floating Mobile preview toggle button */
+#btn-mobile-toggle {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  background: #FFD54F;
+  color: #081638;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  font-size: 22px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Print Styles */
 @media print {
   body { background: none !important; }
-  .top-navbar, .floating-toolbar { display: none !important; }
+  .top-navbar, .floating-toolbar, #btn-mobile-toggle { display: none !important; }
   .canvas-area { background: none !important; padding: 0 !important; margin: 0 !important; overflow: visible !important; height: auto !important; width: 100% !important; }
   .poster-wrapper { transform: none !important; width: 100% !important; height: auto !important; display: flex !important; justify-content: center !important; }
   .poster { box-shadow: none !important; border: none !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -393,7 +496,13 @@ h1 {
 @media (max-width: 900px) {
   .workspace { flex-direction: column; overflow-y: auto; height: calc(100vh - 60px); }
   .canvas-area { height: 40vh; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(255, 255, 255, 0.1); flex-shrink: 0; }
-  .floating-toolbar { width: 100% !important; height: auto !important; border-left: none !important; border-top: 1px solid rgba(255,255,255,0.1); overflow-y: visible !important; padding-bottom: 40px; }
+  .floating-toolbar { width: 100% !important; height: auto !important; border-left: none !important; border-top: 1px solid rgba(255,255,255,0.1); overflow-y: visible !important; padding-bottom: 60px; }
+  #btn-mobile-toggle { display: flex; }
+  
+  /* Prevent iOS auto zoom in on input field focus */
+  input[type="text"], input[type="number"], select {
+    font-size: 16px !important;
+  }
 }
 </style>
 <style id="dynamic-borders-style"></style>
@@ -422,6 +531,9 @@ h1 {
         <!-- Background Layers -->
         <div class="poster-bg" id="poster-bg"></div>
         <div class="poster-bg-overlay" id="poster-bg-overlay"></div>
+        
+        <!-- Canvas Overlay pattern -->
+        <div class="poster-overlay-effect" id="poster-overlay"></div>
         
         <!-- Interactive Poster text & cards -->
         <div class="poster-content" id="poster-content"></div>
@@ -524,6 +636,9 @@ h1 {
   </div>
 </div>
 
+<!-- Mobile Toggle View Button -->
+<button id="btn-mobile-toggle">👁️</button>
+
 <!-- Hidden inputs for clicking photos to upload in canvas -->
 <input type="file" id="canvas-img-uploader" accept="image/*" style="display: none;">
 
@@ -550,6 +665,7 @@ function hexToRgba(hex, alpha) {
 // State
 const state = {
   title: 'ചാന്ദ്ര ദിന ക്വിസ് വിജയികൾ',
+  subtitle: 'Competitions & Celebrations',
   school: 'SN Trust HSS Thottada',
   bgImage: '',
   bgBlur: 0,
@@ -573,12 +689,47 @@ const state = {
   imageBorderColor: '#ffd700',
   imageBorderGlow: 10,
   
+  cardBorderStyle: 'none',
+  cardBorderThickness: 1,
+  cardBorderColor: '#ffffff',
+
+  posterBorderStyle: 'solid',
+  posterBorderThickness: 1,
+  posterBorderColor: 'rgba(255,255,255,0.08)',
+
+  logoImage: '',
+  logoPosition: 'top-right',
+  logoSize: 70,
+
+  titleColor: '#ffd700',
+  schoolColor: '#e2e8f0',
+  subtitleColor: '#cbd5e0',
+  winnerNameColor: '#ffffff',
+  textShadowColor: '#ffd54f',
+  textShadowBlur: 10,
+  textShadowOffsetX: 0,
+  textShadowOffsetY: 2,
+  titleLetterSpacing: 0,
+  titleLineHeight: 1.2,
+
+  headerLayoutOrder: 'title-subtitle-school',
+  headerAlign: 'center',
+
+  overlayEffect: 'none',
+  overlayOpacity: 0.3,
+
+  categoryRibbonStyle: 'plain',
+  categoryRibbonColor: '#ffd700',
+  
   firstPrizeTitle: 'First Prize',
   firstPrizeEmoji: '🥇',
+  firstPrizeBadgeImg: '',
   secondPrizeTitle: 'Second Prize',
   secondPrizeEmoji: '🥈',
+  secondPrizeBadgeImg: '',
   thirdPrizeTitle: 'Third Prize',
   thirdPrizeEmoji: '🥉',
+  thirdPrizeBadgeImg: '',
   
   firstPrizes: [],
   secondPrizes: [],
@@ -662,9 +813,10 @@ function updateBorders() {
 function updatePosterBackground() {
   const posterBg = document.getElementById('poster-bg');
   const posterOverlay = document.getElementById('poster-bg-overlay');
+  const patternOverlay = document.getElementById('poster-overlay');
   const poster = document.getElementById('poster');
   
-  if (!posterBg || !posterOverlay || !poster) return;
+  if (!posterBg || !posterOverlay || !poster || !patternOverlay) return;
 
   poster.className = 'poster';
   if (state.aspectRatio !== 'custom') {
@@ -699,6 +851,47 @@ function updatePosterBackground() {
   }
   
   posterOverlay.style.backgroundColor = `rgba(0, 0, 0, ${state.bgDim / 100})`;
+
+  // Decorative overlays styling
+  patternOverlay.style.backgroundImage = '';
+  patternOverlay.style.backgroundSize = '';
+  patternOverlay.style.backgroundPosition = '';
+  patternOverlay.style.opacity = state.overlayOpacity;
+
+  if (state.overlayEffect === 'light-leak') {
+    patternOverlay.style.background = `radial-gradient(circle at 10% 20%, rgba(255, 0, 127, 0.20) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.20) 0%, transparent 45%)`;
+  } else if (state.overlayEffect === 'confetti-sparkles') {
+    patternOverlay.style.backgroundImage = `radial-gradient(rgba(255, 213, 79, 0.25) 1px, transparent 1px), radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px)`;
+    patternOverlay.style.backgroundSize = `24px 24px, 48px 48px`;
+    patternOverlay.style.backgroundPosition = `0 0, 12px 12px`;
+  } else if (state.overlayEffect === 'gold-dust') {
+    patternOverlay.style.backgroundImage = `radial-gradient(#d4af37 1px, transparent 0), radial-gradient(#d4af37 2px, transparent 0)`;
+    patternOverlay.style.backgroundSize = `10px 10px, 30px 30px`;
+    patternOverlay.style.backgroundPosition = `0 0, 5px 5px`;
+  }
+}
+
+// Renders the Ribbon layout style for card categories
+function getRibbonStyleHTML(titleText) {
+  const ribbonStyle = state.categoryRibbonStyle || 'plain';
+  const ribbonColor = state.categoryRibbonColor || '#ffd700';
+  
+  if (ribbonStyle === 'plain') {
+    return `<h2 style="margin-bottom: 2px;">${escapeHTML(titleText)}</h2>`;
+  }
+  
+  let inlineStyle = '';
+  if (ribbonStyle === 'ribbon-banner') {
+    inlineStyle = `background: ${ribbonColor}; color: #000; padding: 4px 10px; border-radius: 6px; display: inline-block; font-size: 11px; margin-bottom: 6px; font-weight: 800;`;
+  } else if (ribbonStyle === 'bordered-pill') {
+    inlineStyle = `border: 1.5px solid ${ribbonColor}; color: ${ribbonColor}; padding: 3px 12px; border-radius: 9999px; display: inline-block; font-size: 11px; margin-bottom: 6px; font-weight: 800;`;
+  } else if (ribbonStyle === 'neon-border') {
+    inlineStyle = `border: 1px solid ${ribbonColor}; color: #fff; text-shadow: 0 0 5px ${ribbonColor}; box-shadow: 0 0 8px ${ribbonColor}; padding: 4px 10px; border-radius: 4px; display: inline-block; font-size: 11px; margin-bottom: 6px; font-weight: 800;`;
+  } else if (ribbonStyle === 'retro-tape') {
+    inlineStyle = `background: ${ribbonColor}; color: #000; padding: 4px 12px; transform: rotate(-2deg); display: inline-block; font-size: 11px; margin-bottom: 6px; font-weight: 900; box-shadow: 2px 2px 0 rgba(0,0,0,0.15);`;
+  }
+  
+  return `<div><h2 style="${inlineStyle}">${escapeHTML(titleText)}</h2></div>`;
 }
 
 // Renders the Poster DOM with contenteditable fields
@@ -707,12 +900,37 @@ function renderPoster() {
   if (!container) return;
   
   container.innerHTML = '';
+
+  // Render floating Mascot / Brand Logo if exists
+  if (state.logoImage) {
+    let logoCoordStyle = 'top:20px; right:20px;';
+    if (state.logoPosition === 'top-left') logoCoordStyle = 'top:20px; left:20px;';
+    else if (state.logoPosition === 'bottom-left') logoCoordStyle = 'bottom:20px; left:20px;';
+    else if (state.logoPosition === 'bottom-right') logoCoordStyle = 'bottom:20px; right:20px;';
+    
+    const logoHtml = `<img src="${state.logoImage}" style="position: absolute; ${logoCoordStyle} width: ${state.logoSize}px; height: auto; z-index: 10; object-fit: contain; pointer-events: none;">`;
+    container.insertAdjacentHTML('beforeend', logoHtml);
+  }
+
+  // Header Elements Styling overrides
+  const textShadowStyle = `${state.textShadowOffsetX}px ${state.textShadowOffsetY}px ${state.textShadowBlur}px ${state.textShadowColor}`;
+  const titleStyle = `color: ${state.titleColor}; text-shadow: ${textShadowStyle}; letter-spacing: ${state.titleLetterSpacing}px; line-height: ${state.titleLineHeight};`;
+  const schoolStyle = `color: ${state.schoolColor};`;
+  const subtitleStyle = `color: ${state.subtitleColor};`;
   
-  // Header details (contenteditable)
-  const headerHtml = `
-    <h1 id="poster-title" contenteditable="true">${escapeHTML(state.title)}</h1>
-    <div class="school" id="poster-school" contenteditable="true">${escapeHTML(state.school)}</div>
-  `;
+  // Arrange Header layout ordering
+  const headerNodeMap = {
+    'title': `<h1 id="poster-title" contenteditable="true" style="${titleStyle}">${escapeHTML(state.title)}</h1>`,
+    'school': `<div class="school" id="poster-school" contenteditable="true" style="${schoolStyle}">${escapeHTML(state.school)}</div>`,
+    'subtitle': `<div class="subtitle" id="poster-subtitle" contenteditable="true" style="${subtitleStyle}">${escapeHTML(state.subtitle)}</div>`
+  };
+
+  const layoutOrder = (state.headerLayoutOrder || 'title-subtitle-school').split('-');
+  let headerHtml = `<div style="text-align: ${state.headerAlign || 'center'}; flex-shrink: 0;">`;
+  layoutOrder.forEach(key => {
+    if (headerNodeMap[key]) headerHtml += headerNodeMap[key];
+  });
+  headerHtml += `</div>`;
   container.insertAdjacentHTML('beforeend', headerHtml);
 
   // Layout generators
@@ -761,9 +979,20 @@ function renderPoster() {
     // Highlight card if selected
     const activeClass = (selectedWinnerId === winner.id) ? ' active-card' : '';
 
+    // Badge image vs emoji
+    let badgeHTML = `<div style="font-size:60px; line-height:1; ${isColumn ? 'margin-bottom: 6px;' : ''}">${badge}</div>`;
+    let customBadgeUrl = '';
+    if (badge === state.firstPrizeEmoji && state.firstPrizeBadgeImg) customBadgeUrl = state.firstPrizeBadgeImg;
+    else if (badge === state.secondPrizeEmoji && state.secondPrizeBadgeImg) customBadgeUrl = state.secondPrizeBadgeImg;
+    else if (badge === state.thirdPrizeEmoji && state.thirdPrizeBadgeImg) customBadgeUrl = state.thirdPrizeBadgeImg;
+
+    if (customBadgeUrl) {
+      badgeHTML = `<img src="${customBadgeUrl}" style="width:64px; height:64px; object-fit:contain; flex-shrink:0; ${isColumn ? 'margin-bottom: 6px;' : ''}">`;
+    }
+
     return `
       <div class="${cardClass}${activeClass}" id="winner-card-${winner.id}" data-id="${winner.id}" data-category="${badge === state.firstPrizeEmoji ? 'firstPrizes' : (badge === state.secondPrizeEmoji ? 'secondPrizes' : 'thirdPrizes')}" style="display: flex; flex-direction: ${flexDir}; align-items: center; gap: 20px; padding: ${cardPadding}; ${cardBgStyle}">
-        <div style="font-size:60px; line-height:1; ${isColumn ? 'margin-bottom: 6px;' : ''}">${badge}</div>
+        ${badgeHTML}
         <div style="display: flex; justify-content: center; align-self: ${flexAlign}; ${isColumn ? 'margin-bottom: 8px;' : ''}" class="img-wrapper">
           <div class="img-container" data-id="${winner.id}" data-category="${badge === state.firstPrizeEmoji ? 'firstPrizes' : (badge === state.secondPrizeEmoji ? 'secondPrizes' : 'thirdPrizes')}">
             <div class="img-edit-overlay">📷 Upload</div>
@@ -771,8 +1000,8 @@ function renderPoster() {
           </div>
         </div>
         <div class="text-block" style="${textStyle} flex-grow: 1;">
-          <h2>${escapeHTML(prizeTitle)}</h2>
-          <h3 id="name-${winner.id}" contenteditable="true" data-id="${winner.id}" data-category="${badge === state.firstPrizeEmoji ? 'firstPrizes' : (badge === state.secondPrizeEmoji ? 'secondPrizes' : 'thirdPrizes')}">${escapeHTML(winner.name)}</h3>
+          ${getRibbonStyleHTML(prizeTitle)}
+          <h3 id="name-${winner.id}" contenteditable="true" data-id="${winner.id}" data-category="${badge === state.firstPrizeEmoji ? 'firstPrizes' : (badge === state.secondPrizeEmoji ? 'secondPrizes' : 'thirdPrizes')}" style="color: ${state.winnerNameColor || '#ffffff'};">${escapeHTML(winner.name)}</h3>
         </div>
       </div>
     `;
@@ -853,11 +1082,18 @@ function renderPoster() {
 
 // Binds all direct click and typing events on the preview canvas
 function bindInteractiveCanvasEvents() {
-  // Title & School direct inline typing
+  // Title, Subtitle & School direct inline typing
   const titleEl = document.getElementById('poster-title');
   if (titleEl) {
     titleEl.addEventListener('input', (e) => {
       state.title = e.target.textContent;
+      saveStateToLocalStorage();
+    });
+  }
+  const subtitleEl = document.getElementById('poster-subtitle');
+  if (subtitleEl) {
+    subtitleEl.addEventListener('input', (e) => {
+      state.subtitle = e.target.textContent;
       saveStateToLocalStorage();
     });
   }
@@ -1258,6 +1494,24 @@ document.getElementById('btn-print').addEventListener('click', () => {
 // Click outside card to deselect it
 document.getElementById('preview-area').addEventListener('click', () => {
   deselectWinnerCard();
+});
+
+// Mobile Preview Toggle button click
+let mobilePreviewHidden = false;
+document.getElementById('btn-mobile-toggle').addEventListener('click', () => {
+  const preview = document.getElementById('preview-area');
+  mobilePreviewHidden = !mobilePreviewHidden;
+  
+  if (mobilePreviewHidden) {
+    preview.style.height = '0px';
+    preview.style.padding = '0px';
+    preview.style.borderBottom = 'none';
+  } else {
+    preview.style.height = '40vh';
+    preview.style.padding = '40px 15px';
+    preview.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
+    setTimeout(autoScale, 100);
+  }
 });
 
 // Poster Scale-to-Fit Engine
